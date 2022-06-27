@@ -3,6 +3,7 @@ import axios from "axios";
 import Map from "../components/Map";
 import ReactTooltip from "react-tooltip";
 import Nav from "../components/Nav";
+import Cards from "../components/Cards"
 
 export default function Home() {
   const [states, setStates] = useState([]); //para guardar el arreglo de los estados que viene del API, inicia en vacio
@@ -34,12 +35,8 @@ export default function Home() {
   // checar condicionales rernarias
   return (
     <div>
-<<<<<<< HEAD
-      <h1>OBSERVATORIO DIGITAL</h1>
-=======
       <Nav></Nav>
-      <h1 className="text-3xl text-red-500 font-bold underline">Observatorio digital</h1>
->>>>>>> 2071189a53ac7f5f2a9dd2295257f61faed2c547
+      <h1 className="text-3xl text-emerald-500 font-bold underline">Observatorio digital</h1>
       {loading ? ( // ? es un if
         <p>cargando</p>
       ) : globalError ? ( // : es un else
@@ -48,8 +45,9 @@ export default function Home() {
         <div>
           {states.length > 0 ? (
             <div className="states-list">
+              <Cards></Cards>
               {/* componente de mapa, se le manda la lista de estados del API, y se le manda el set de content*/}
-              <Map setTooltipContent={setContent} states={states} />
+              <Map className="-right-2.5" setTooltipContent={setContent} states={states} />
               <ReactTooltip>{content}</ReactTooltip>
               <ul>
                 {states.map((state, index) => (
