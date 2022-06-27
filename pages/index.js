@@ -36,7 +36,11 @@ export default function Home() {
   return (
     <div>
       <Nav></Nav>
+<<<<<<< HEAD
       <h1 className="text-3xl text-emerald-500 font-bold underline">Observatorio digital</h1>
+=======
+      <h1 className="text-3xl text-red-500 font-bold underline">Observatorio digital</h1>
+>>>>>>> e579c063815bfb7b74e1961d680c157c7a69d237
       {loading ? ( // ? es un if
         <p>cargando</p>
       ) : globalError ? ( // : es un else
@@ -47,8 +51,13 @@ export default function Home() {
             <div className="states-list">
               <Cards></Cards>
               {/* componente de mapa, se le manda la lista de estados del API, y se le manda el set de content*/}
+<<<<<<< HEAD
               <Map className="-right-2.5" setTooltipContent={setContent} states={states} />
               <ReactTooltip>{content}</ReactTooltip>
+=======
+              <Map setTooltipContent={setContent} states={states} />
+              <ReactTooltip backgroundColor="#f6755b" >{content}</ReactTooltip>
+>>>>>>> e579c063815bfb7b74e1961d680c157c7a69d237
               <ul>
                 {states.map((state, index) => (
                   <li key={index}>

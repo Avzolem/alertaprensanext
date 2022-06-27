@@ -11,7 +11,7 @@ const Map = ({ setTooltipContent, states }) => {
     });
 
     if (match) {
-      text = `${match.name} - ${match.reportes} reportes hechos`;
+      text = `${match.name} - ${match.reportes} Reportes`;
     } else {
       text = "No hay informacion";
     }
@@ -30,7 +30,7 @@ const Map = ({ setTooltipContent, states }) => {
       }}
     >
       <Geographies
-        style={{ backgroundColor: "green", bottom: 100 }}
+        style={{ backgroundColor: "white", bottom: 100 }}
         geography={geoUrl}
       >
         {/* toma la lista de geoUrl y la itera para poder pintar el mapa */}
@@ -53,14 +53,16 @@ const Map = ({ setTooltipContent, states }) => {
                   default: {
                     fill: "#70d7c4", //Color Default
                     outline: "none",
+                    
                   },
                   hover: {
-                    fill: "#f6755b", //Color Hover
+                    fill: "#21827e", //Color Hover
                     outline: "none",
+                    
                   },
                   pressed: {
                     //Color Presionado
-                    fill: "#023730",
+                    fill: "#f6755b",
                     outline: "none",
                   },
                 }}
