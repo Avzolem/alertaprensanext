@@ -34,13 +34,9 @@ export default function Home() {
   //todo lo que esta dentro de return en un componente de react es jsx (html)
   // checar condicionales rernarias
   return (
-    <div>
+    <div className="bg-stone-200">
       <Nav></Nav>
-<<<<<<< HEAD
       <h1 className="text-3xl text-emerald-500 font-bold underline">Observatorio digital</h1>
-=======
-      <h1 className="text-3xl text-red-500 font-bold underline">Observatorio digital</h1>
->>>>>>> e579c063815bfb7b74e1961d680c157c7a69d237
       {loading ? ( // ? es un if
         <p>cargando</p>
       ) : globalError ? ( // : es un else
@@ -48,24 +44,19 @@ export default function Home() {
       ) : (
         <div>
           {states.length > 0 ? (
-            <div className="states-list">
+            <div className="states-list container">
               <Cards></Cards>
               {/* componente de mapa, se le manda la lista de estados del API, y se le manda el set de content*/}
-<<<<<<< HEAD
-              <Map className="-right-2.5" setTooltipContent={setContent} states={states} />
-              <ReactTooltip>{content}</ReactTooltip>
-=======
-              <Map setTooltipContent={setContent} states={states} />
+              <Map className=""setTooltipContent={setContent} states={states} />
               <ReactTooltip backgroundColor="#f6755b" >{content}</ReactTooltip>
->>>>>>> e579c063815bfb7b74e1961d680c157c7a69d237
-              <ul>
+              {/* <ul>
                 {states.map((state, index) => (
                   <li key={index}>
                     <p>Nombre: {state.name}</p>
                     <p>Reportes: {state.reportes} </p>
                   </li>
                 ))}
-              </ul>
+              </ul> */}
             </div>
           ) : (
             <p>No hay estados</p>

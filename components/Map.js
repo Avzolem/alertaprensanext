@@ -23,14 +23,14 @@ const Map = ({ setTooltipContent, states }) => {
     <ComposableMap
       data-tip=""
       a
-      style={{ backgroundColor: "white" }}
+      style={{ backgroundColor: "#e7e5e4" }}
       projection="geoAlbers"
       projectionConfig={{
         center: [-5, 25],
       }}
     >
       <Geographies
-        style={{ backgroundColor: "white", bottom: 100 }}
+        style={{ backgroundColor: "#e7e5e4", bottom: 100 }}
         geography={geoUrl}
       >
         {/* toma la lista de geoUrl y la itera para poder pintar el mapa */}
