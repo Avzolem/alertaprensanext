@@ -33,7 +33,7 @@ export default function Home() {
   // checar condicionales rernarias
   return (
     <div>
-      <h1>holi andy</h1>
+      <h1>OBSERVATORIO DIGITAL</h1>
       {loading ? ( // ? es un if
         <p>cargando</p>
       ) : globalError ? ( // : es un else
