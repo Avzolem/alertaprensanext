@@ -50,16 +50,16 @@ const Map = ({ setTooltipContent, states }) => {
                 }}
                 style={{
                   default: {
-                    fill: "#D6D6DA", //Color Default
+                    fill: "#70d7c4", //Color Default
                     outline: "none",
                   },
                   hover: {
-                    fill: "#F53", //Color Hover
+                    fill: "#f6755b", //Color Hover
                     outline: "none",
                   },
                   pressed: {
                     //Color Presionado
-                    fill: "#E42",
+                    fill: "#023730",
                     outline: "none",
                   },
                 }}
