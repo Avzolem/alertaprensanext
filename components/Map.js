@@ -22,7 +22,8 @@ const Map = ({ setTooltipContent, states }) => {
   return (
     <ComposableMap
       data-tip=""
-      style={{ backgroundColor: "gray" }}
+      a
+      style={{ backgroundColor: "white" }}
       projection="geoAlbers"
       projectionConfig={{
         center: [-5, 25],
@@ -41,7 +42,7 @@ const Map = ({ setTooltipContent, states }) => {
                 key={geo.rsmKey}
                 geography={geo}
                 onMouseEnter={() => {
-                  console.log("ay ya arriba");
+                  console.log("Tooltip actualizado");
                   const tootltipText = findStateCode(geo.properties.state_code);
                   setTooltipContent(tootltipText); //actualiza el estado del tooltip, que esta en el componente de la pagina
                 }}
