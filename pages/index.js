@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Map from "../components/Map";
 import ReactTooltip from "react-tooltip";
+import Nav from "../components/Nav";
 
 export default function Home() {
   const [states, setStates] = useState([]); //para guardar el arreglo de los estados que viene del API, inicia en vacio
@@ -33,7 +34,8 @@ export default function Home() {
   // checar condicionales rernarias
   return (
     <div>
-      <h1>holi andy</h1>
+      <Nav></Nav>
+      <h1 className="text-3xl text-red-500 font-bold underline">Observatorio digital</h1>
       {loading ? ( // ? es un if
         <p>cargando</p>
       ) : globalError ? ( // : es un else
