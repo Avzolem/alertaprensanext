@@ -34,9 +34,9 @@ export default function Home() {
   //todo lo que esta dentro de return en un componente de react es jsx (html)
   // checar condicionales rernarias
   return (
-    <div>
+    <div className="bg-stone-200">
       <Nav></Nav>
-      <h1 className="text-3xl text-red-500 font-bold underline">
+      <h1 className="text-3xl text-emerald-500 font-bold underline">
         Observatorio digital
       </h1>
       {loading ? ( // ? es un if
@@ -46,19 +46,23 @@ export default function Home() {
       ) : (
         <div>
           {states.length > 0 ? (
-            <div className="states-list">
+            <div className="states-list container">
               <Cards></Cards>
               {/* componente de mapa, se le manda la lista de estados del API, y se le manda el set de content*/}
-              <Map setTooltipContent={setContent} states={states} />
+              <Map
+                className=""
+                setTooltipContent={setContent}
+                states={states}
+              />
               <ReactTooltip backgroundColor="#f6755b">{content}</ReactTooltip>
-              <ul>
+              {/* <ul>
                 {states.map((state, index) => (
                   <li key={index}>
                     <p>Nombre: {state.name}</p>
                     <p>Reportes: {state.reportes} </p>
                   </li>
                 ))}
-              </ul>
+              </ul> */}
             </div>
           ) : (
             <p>No hay estados</p>
