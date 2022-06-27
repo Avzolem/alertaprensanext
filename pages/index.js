@@ -34,12 +34,8 @@ export default function Home() {
   // checar condicionales rernarias
   return (
     <div>
-<<<<<<< HEAD
-      <h1>OBSERVATORIO DIGITAL</h1>
-=======
       <Nav></Nav>
       <h1 className="text-3xl text-red-500 font-bold underline">Observatorio digital</h1>
->>>>>>> 2071189a53ac7f5f2a9dd2295257f61faed2c547
       {loading ? ( // ? es un if
         <p>cargando</p>
       ) : globalError ? ( // : es un else
@@ -50,7 +46,7 @@ export default function Home() {
             <div className="states-list">
               {/* componente de mapa, se le manda la lista de estados del API, y se le manda el set de content*/}
               <Map setTooltipContent={setContent} states={states} />
-              <ReactTooltip>{content}</ReactTooltip>
+              <ReactTooltip backgroundColor="#f6755b" >{content}</ReactTooltip>
               <ul>
                 {states.map((state, index) => (
                   <li key={index}>
