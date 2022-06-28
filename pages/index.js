@@ -20,7 +20,28 @@ export default function Home() {
 
       try {
         const response = await axios.get("/api/states"); //le hace GET a el api de estados, el await no se puede utilizar si la funcion padre no tiene Async
-        setStates(response.data.all_states); //actualiza el estado de react con los estados de mexico que regreso el API
+        
+        alert('Chistirijillo pa que te asustes perrin');
+
+        const responseStates = response.data.all_states;
+        //gets minimum and maximum of reportes of states
+        const minValue = Math.min(
+          ...responseStates.map((state) => state.reportes)
+        );
+        const maxValue = Math.max(
+          ...responseStates.map((state) => state.reportes)
+        );
+
+        const parsedStates = responseStates.map((state) => {
+          const newState = { ...state };
+          //set opacity from 0 to 1 using min and max values
+          newState.opacity =
+            (state.reportes - minValue) / (maxValue - minValue);
+          newState.url = `/estados/${state.state_code}`;
+          return newState;
+        });
+
+        setStates(parsedStates); //actualiza el estado de react con los estados de mexico que regreso el API
       } catch (error) {
         console.log(error);
         setGlobalError("Ocurrio un error trayendo la informacion del server"); //Cachea el error
@@ -37,8 +58,8 @@ export default function Home() {
   return (
     <div className="bg-stone-200">
       <Nav></Nav>
-      <h1 className="text-3xl text-emerald-500 font-bold underline">
-        Observatorio digital
+      <h1 className="text-5xl text-emerald-500 font-bold underline">
+        Observatorio digital --- Control+Shift+Ñ es el mejor comando de la historia carnal 
       </h1>
       {loading ? ( // ? es un if
         <p>cargando</p>
