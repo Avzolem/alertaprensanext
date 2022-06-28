@@ -3,7 +3,7 @@ import axios from "axios";
 import Map from "../components/Map";
 import ReactTooltip from "react-tooltip";
 import Nav from "../components/Nav";
-import Card from "../components/Card"
+import Card from "../components/Card";
 import Cardita from "../components/Cardita";
 
 export default function Home() {
@@ -20,8 +20,6 @@ export default function Home() {
 
       try {
         const response = await axios.get("/api/states"); //le hace GET a el api de estados, el await no se puede utilizar si la funcion padre no tiene Async
-        
-        alert('Chistirijillo pa que te asustes perrin');
 
         const responseStates = response.data.all_states;
         //gets minimum and maximum of reportes of states
@@ -49,7 +47,7 @@ export default function Home() {
 
       setLoading(false);
     };
-
+    alert("Chistirijillo pa que te asustes perrin");
     getData(); //Ejecuta el GetData
   }, []); // Se usan los [] para que se ejecute 1 sola vez el useeffect
 
@@ -59,8 +57,10 @@ export default function Home() {
     <div className="bg-stone-200">
       <Nav></Nav>
       <h1 className="text-5xl text-emerald-500 font-bold underline">
-        Observatorio digital --- Control+Shift+Ñ es el mejor comando de la historia carnal 
+        Observatorio digital --- Control+Shift+Ñ es el mejor comando de la
+        historia carnal
       </h1>
+      TY
       {loading ? ( // ? es un if
         <p>cargando</p>
       ) : globalError ? ( // : es un else
@@ -69,12 +69,23 @@ export default function Home() {
         <div>
           {states.length > 0 ? (
             <div className="states-list container">
-              <Card title="Alertas del mes" text="Número de alertas del mes."></Card>
-              <Card title="Alertas Máximas" text="Número de alertas máximas."></Card>
-              <Card title="Alertas por estado" text="Número de alertas por estado."></Card>
+              <Card
+                title="Alertas del mes"
+                text="Número de alertas del mes."
+              ></Card>
+              <Card
+                title="Alertas Máximas"
+                text="Número de alertas máximas."
+              ></Card>
+              <Card
+                title="Alertas por estado"
+                text="Número de alertas por estado."
+              ></Card>
               {/* <Cardita value="verdecito"></Cardita> */}
               {/* componente de mapa, se le manda la lista de estados del API, y se le manda el set de content*/}
               <Map
+                width="0"
+                height="200"
                 className=""
                 setTooltipContent={setContent}
                 states={states}
