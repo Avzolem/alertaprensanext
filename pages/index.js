@@ -54,8 +54,8 @@ export default function Home() {
   return (
     <div className="bg-stone-200">
       <Nav></Nav>
-      <h1 className="text-3xl text-emerald-500 font-bold underline">
-        Observatorio digital
+      <h1 className="text-5xl text-emerald-500 font-bold underline">
+        Observatorio digital --- Control+Shift+Ñ es el mejor comando de la historia carnal 
       </h1>
       {loading ? ( // ? es un if
         <p>cargando</p>
