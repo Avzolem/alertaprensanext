@@ -18,7 +18,9 @@ export default function Home() {
 
       try {
         const response = await axios.get("/api/states"); //le hace GET a el api de estados, el await no se puede utilizar si la funcion padre no tiene Async
-       
+        
+        alert('Chistirijillo pa que te asustes perrin');
+
         const responseStates = response.data.all_states;
         //gets minimum and maximum of reportes of states
         const minValue = Math.min(
