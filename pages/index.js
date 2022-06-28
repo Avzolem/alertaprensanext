@@ -3,7 +3,6 @@ import axios from "axios";
 import Map from "../components/Map";
 import ReactTooltip from "react-tooltip";
 import Nav from "../components/Nav";
-import Cards from "../components/Cards";
 import Card from "../components/Card"
 export default function Home() {
   const [states, setStates] = useState([]); //para guardar el arreglo de los estados que viene del API, inicia en vacio
@@ -19,25 +18,7 @@ export default function Home() {
 
       try {
         const response = await axios.get("/api/states"); //le hace GET a el api de estados, el await no se puede utilizar si la funcion padre no tiene Async
-        const responseStates = response.data.all_states;
-        //gets minimum and maximum of reportes of states
-        const minValue = Math.min(
-          ...responseStates.map((state) => state.reportes)
-        );
-        const maxValue = Math.max(
-          ...responseStates.map((state) => state.reportes)
-        );
-
-        const parsedStates = responseStates.map((state) => {
-          const newState = { ...state };
-          //set opacity from 0 to 1 using min and max values
-          newState.opacity =
-            (state.reportes - minValue) / (maxValue - minValue);
-          newState.url = `/estados/${state.state_code}`;
-          return newState;
-        });
-
-        setStates(parsedStates); //actualiza el estado de react con los estados de mexico que regreso el API
+        setStates(response.data.all_states); //actualiza el estado de react con los estados de mexico que regreso el API
       } catch (error) {
         console.log(error);
         setGlobalError("Ocurrio un error trayendo la informacion del server"); //Cachea el error
@@ -70,7 +51,7 @@ export default function Home() {
               <Card title="Alertas por estado" text="Número de alertas por estado."></Card>
               {/* componente de mapa, se le manda la lista de estados del API, y se le manda el set de content*/}
               <Map
-                className="flex"
+                className=""
                 setTooltipContent={setContent}
                 states={states}
               />
