@@ -1,7 +1,7 @@
-function Card(props) {
+function Card1(props) {
     const title = props.title;
     const text = props.text;
-    const color = props.color;
+    
       return (
     <div class="m-8">
       <div class="card w-96 bg-cyan-700 text-primary-content">
@@ -17,5 +17,5 @@ function Card(props) {
       );
   }
   
-  export default Card
+  export default Card1
 

@@ -3,8 +3,8 @@ import axios from "axios";
 import Map from "../components/Map";
 import ReactTooltip from "react-tooltip";
 import Nav from "../components/Nav";
-import Card from "../components/Card"
-import Cardita from "../components/Cardita";
+import Card1 from "../components/Card1";
+import Card2 from "../components/Card2";
 
 export default function Home() {
   const [states, setStates] = useState([]); //para guardar el arreglo de los estados que viene del API, inicia en vacio
@@ -69,10 +69,9 @@ export default function Home() {
         <div>
           {states.length > 0 ? (
             <div className="states-list container">
-              <Card title="Alertas del mes" text="Número de alertas del mes."></Card>
-              <Card title="Alertas Máximas" text="Número de alertas máximas."></Card>
-              <Card title="Alertas por estado" text="Número de alertas por estado."></Card>
-              {/* <Cardita value="verdecito"></Cardita> */}
+              <Card1 title="Alertas del mes" text="Número de alertas del mes."></Card1>
+              <Card2 value="Verdesote" title="Alertas Máximas" text="Número de alertas máximas."></Card2>
+              <Card1 value="Verdecito" title="Alertas por estado" text="Número de alertas por estado."></Card1>
               {/* componente de mapa, se le manda la lista de estados del API, y se le manda el set de content*/}
               <Map
                 className=""
