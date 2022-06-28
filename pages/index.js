@@ -19,7 +19,25 @@ export default function Home() {
 
       try {
         const response = await axios.get("/api/states"); //le hace GET a el api de estados, el await no se puede utilizar si la funcion padre no tiene Async
-        setStates(response.data.all_states); //actualiza el estado de react con los estados de mexico que regreso el API
+        const responseStates = response.data.all_states;
+        //gets minimum and maximum of reportes of states
+        const minValue = Math.min(
+          ...responseStates.map((state) => state.reportes)
+        );
+        const maxValue = Math.max(
+          ...responseStates.map((state) => state.reportes)
+        );
+
+        const parsedStates = responseStates.map((state) => {
+          const newState = { ...state };
+          //set opacity from 0 to 1 using min and max values
+          newState.opacity =
+            (state.reportes - minValue) / (maxValue - minValue);
+          newState.url = `/estados/${state.state_code}`;
+          return newState;
+        });
+
+        setStates(parsedStates); //actualiza el estado de react con los estados de mexico que regreso el API
       } catch (error) {
         console.log(error);
         setGlobalError("Ocurrio un error trayendo la informacion del server"); //Cachea el error
