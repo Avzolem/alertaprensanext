@@ -4,7 +4,7 @@ import Map from "../components/Map";
 import ReactTooltip from "react-tooltip";
 import Nav from "../components/Nav";
 import Cards from "../components/Cards";
-
+import Card from "../components/Card"
 export default function Home() {
   const [states, setStates] = useState([]); //para guardar el arreglo de los estados que viene del API, inicia en vacio
   const [loading, setLoading] = useState(false); // estado para mostrar que esta cargando
@@ -47,10 +47,12 @@ export default function Home() {
         <div>
           {states.length > 0 ? (
             <div className="states-list container">
-              <Cards></Cards>
+              <Card title="Alertas del mes" text="Número de alertas del mes."></Card>
+              <Card title="Alertas Máximas" text="Número de alertas máximas."></Card>
+              <Card title="Alertas por estado" text="Número de alertas por estado."></Card>
               {/* componente de mapa, se le manda la lista de estados del API, y se le manda el set de content*/}
               <Map
-                className=""
+                className="flex"
                 setTooltipContent={setContent}
                 states={states}
               />
