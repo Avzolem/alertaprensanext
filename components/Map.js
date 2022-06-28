@@ -55,15 +55,14 @@ const Map = ({ setTooltipContent, states }) => {
   return (
     <ComposableMap
       data-tip=""
-      style={{ backgroundColor: "#e7e5e4" }} //Fondo del mapa
-      projection="geoAlbers" 
+      style={{ backgroundColor: "#e7e5e4" }}
+      projection="geoAlbers"
       projectionConfig={{
-        
         center: [-5, 25],
       }}
     >
       <Geographies
-        style={{ backgroundColor: "red", bottom: 100 }} 
+        style={{ backgroundColor: "red", bottom: 100 }}
         geography={geoUrl}
       >
         {/* toma la lista de geoUrl y la itera para poder pintar el mapa */}
@@ -97,10 +96,9 @@ const Map = ({ setTooltipContent, states }) => {
                       geo.properties.state_code
                     ),
                     stroke: "#FFFFFF",
-                    
                   },
                   hover: {
-                    fill: "#21827e", //Color Hover
+                    fill: "#21827e", //Color Default
                     fillOpacity: 1,
                     fillOpacity: getOpacityValueForState(
                       geo.properties.state_code
@@ -109,7 +107,8 @@ const Map = ({ setTooltipContent, states }) => {
                     stroke: "#FFFFFF",
                   },
                   pressed: {
-                    fill: "#f6755b", //Color Presionado
+                    //Color Presionado
+                    fill: "#f6755b",
                     outline: "none",
                     stroke: "#FFFFFF",
                   },
