@@ -61,29 +61,33 @@ export default function Home() {
       ) : globalError ? ( // : es un else
         globalError
       ) : (
-        <div>
+        <div className="">
           {states.length > 0 ? (
-            <div className="states-list container">
-              <Card1
-                title="Alertas del mes"
-                text="Número de alertas del mes."
-              ></Card1>
-              <Card2
-                title="Alertas Máximas"
-                text="Número de alertas máximas."
-              ></Card2>
-              <Card1
-                title="Alertas por estado"
-                text="Número de alertas por estado."
-              ></Card1>
+            <div className="states-list container flex sm:flex-none">
+              {/* Aquí van los componentes Card */}
               {/* componente de mapa, se le manda la lista de estados del API, y se le manda el set de content*/}
-              <Map
-                width="0"
-                height="200"
-                className=""
-                setTooltipContent={setContent}
-                states={states}
-              />
+
+              <div className="">
+                <Card1
+                  title="Alertas del mes"
+                  text="Número de alertas del mes."
+                ></Card1>
+                <Card2
+                  title="Alertas Máximas"
+                  text="Número de alertas máximas."
+                ></Card2>
+                <Card1
+                  title="Alertas por estado"
+                  text="Número de alertas por estado."
+                ></Card1>
+              </div>
+              <div className="container md:flex-none ">
+                <Map
+                  className=""
+                  setTooltipContent={setContent}
+                  states={states}
+                />
+              </div>
               <ReactTooltip backgroundColor="#f6755b">{content}</ReactTooltip>
               {/* <ul>
                 {states.map((state, index) => (

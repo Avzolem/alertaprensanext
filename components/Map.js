@@ -58,7 +58,9 @@ const Map = ({ setTooltipContent, states }) => {
       style={{ backgroundColor: "#e7e5e4" }} // Fondo del mapa
       projection="geoAlbers"
       projectionConfig={{
-        center: [-5, 25],
+        center: [0, 20],
+        height: [100],
+        width: [100],
       }}
     >
       <Geographies
