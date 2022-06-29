@@ -1,8 +1,8 @@
 function Card1(props) {
-    const title = props.title;
-    const text = props.text;
-    
-      return (
+  const title = props.title;
+  const text = props.text;
+
+  return (
     <div class="m-8">
       <div class="card w-96 bg-cyan-700 text-primary-content">
         <div class="card-body">
@@ -14,8 +14,7 @@ function Card1(props) {
         </div>
       </div>
     </div>
-      );
-  }
-  
-  export default Card1
+  );
+}
 
+export default Card1;

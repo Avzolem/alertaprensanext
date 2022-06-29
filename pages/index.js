@@ -18,20 +18,21 @@ export default function Home() {
     const getData = async () => {
       setLoading(true); //inicia loading true
       try {
-        const response = await axios.get("/api/states"); //le hace GET a el api de estados, el await no se puede utilizar si la funcion padre no tiene Async
-        const responseStates = response.data.all_states;
-        //gets minimum and maximum of reportes of states
+        const response = await axios.get(
+          "http://148.229.5.95:3000/maps/all_states" // Para pruebas locales cambiar a /api/states/
+        ); //le hace GET a el api de estados, el await no se puede utilizar si la funcion padre no tiene Async
+        const responseStates = response.data; //Para pruebas locales cambiar response.data.all_states;
+        //gets minimum and maximum of reports of states
         const minValue = Math.min(
-          ...responseStates.map((state) => state.reportes)
+          ...responseStates.map((state) => state.reports)
         );
         const maxValue = Math.max(
-          ...responseStates.map((state) => state.reportes)
+          ...responseStates.map((state) => state.reports)
         );
         const parsedStates = responseStates.map((state) => {
           const newState = { ...state };
           //set opacity from 0 to 1 using min and max values
-          newState.opacity =
-            (state.reportes - minValue) / (maxValue - minValue);
+          newState.opacity = (state.reports - minValue) / (maxValue - minValue);
           newState.url = `/estados/${state.state_code}`;
           return newState;
         });
@@ -89,14 +90,14 @@ export default function Home() {
                 />
               </div>
               <ReactTooltip backgroundColor="#f6755b">{content}</ReactTooltip>
-              {/* <ul>
-                {states.map((state, index) => (
-                  <li key={index}>
-                    <p>Nombre: {state.name}</p>
-                    <p>Reportes: {state.reportes} </p>
-                  </li>
-                ))}
-              </ul> */}
+              {/*<ul>
+                  {states.map((state, index) => (
+                    <li key={index}>
+                      <p>Nombre: {state.name}</p>
+                      <p>Reportes: {state.reports} </p>
+                    </li>
+                  ))}
+                </ul>*/}
             </div>
           ) : (
             <p>No hay estados</p>

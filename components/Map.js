@@ -18,7 +18,7 @@ const Map = ({ setTooltipContent, states }) => {
     });
 
     if (match) {
-      text = `${match.name} - ${match.reportes} Reportes Hechos`;
+      text = `${match.name} - ${match.reports} Reportes Hechos`;
     } else {
       text = "No hay informacion";
     }
