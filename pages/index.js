@@ -68,7 +68,7 @@ export default function Home() {
               {/* Aquí van los componentes Card */}
               {/* componente de mapa, se le manda la lista de estados del API, y se le manda el set de content*/}
 
-              <div className="">
+              <div className="container">
                 <Card1
                   title="Alertas del mes"
                   text="Número de alertas del mes."
