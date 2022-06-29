@@ -69,9 +69,20 @@ export default function Home() {
         <div>
           {states.length > 0 ? (
             <div className="states-list container">
-              <Card1 title="Alertas del mes" text="Número de alertas del mes."></Card1>
-              <Card2 value="Verdesote" title="Alertas Máximas" text="Número de alertas máximas."></Card2>
-              <Card1 value="Verdecito" title="Alertas por estado" text="Número de alertas por estado."></Card1>
+              <Card1
+                title="Alertas del mes"
+                text="Número de alertas del mes."
+              ></Card1>
+              <Card2
+                value="Verdesote"
+                title="Alertas Máximas"
+                text="Número de alertas máximas."
+              ></Card2>
+              <Card1
+                value="Verdecito"
+                title="Alertas por estado"
+                text="Número de alertas por estado."
+              ></Card1>
               {/* componente de mapa, se le manda la lista de estados del API, y se le manda el set de content*/}
               <Map
                 width="0"

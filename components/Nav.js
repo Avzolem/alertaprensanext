@@ -1,10 +1,10 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
+import { Fragment } from "react";
+import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 export default function Nav() {
@@ -30,7 +30,10 @@ export default function Nav() {
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
                     {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
-                    <a href="#" className="bg-teal-900 text-white px-3 py-2 rounded-md text-sm font-medium">
+                    <a
+                      href="#"
+                      className="bg-teal-900 text-white px-3 py-2 rounded-md text-sm font-medium"
+                    >
                       Inicio
                     </a>
                     <a
@@ -62,10 +65,7 @@ export default function Nav() {
               </div>
               <div className="hidden sm:ml-6 sm:block">
                 <div className="flex items-center">
-                  
-
                   {/* Profile dropdown */}
-                  
                 </div>
               </div>
               <div className="-mr-2 flex sm:hidden">
@@ -124,8 +124,12 @@ export default function Nav() {
                   />
                 </div>
                 <div className="ml-3">
-                  <div className="text-base font-medium text-white">Tom Cook</div>
-                  <div className="text-sm font-medium text-gray-400">tom@example.com</div>
+                  <div className="text-base font-medium text-white">
+                    Tom Cook
+                  </div>
+                  <div className="text-sm font-medium text-gray-400">
+                    tom@example.com
+                  </div>
                 </div>
                 <button
                   type="button"
@@ -163,5 +167,5 @@ export default function Nav() {
         </>
       )}
     </Disclosure>
-  )
+  );
 }
