@@ -17,10 +17,8 @@ export default function Home() {
     //esta funcion consume el servicio del API
     const getData = async () => {
       setLoading(true); //inicia loading true
-
       try {
         const response = await axios.get("/api/states"); //le hace GET a el api de estados, el await no se puede utilizar si la funcion padre no tiene Async
-
         const responseStates = response.data.all_states;
         //gets minimum and maximum of reportes of states
         const minValue = Math.min(
@@ -29,7 +27,6 @@ export default function Home() {
         const maxValue = Math.max(
           ...responseStates.map((state) => state.reportes)
         );
-
         const parsedStates = responseStates.map((state) => {
           const newState = { ...state };
           //set opacity from 0 to 1 using min and max values
@@ -47,7 +44,6 @@ export default function Home() {
 
       setLoading(false);
     };
-    alert("Chistirijillo pa que te asustes perrin");
     getData(); //Ejecuta el GetData
   }, []); // Se usan los [] para que se ejecute 1 sola vez el useeffect
 
@@ -57,10 +53,9 @@ export default function Home() {
     <div className="bg-stone-200">
       <Nav></Nav>
       <h1 className="text-5xl text-emerald-500 font-bold underline">
-        Observatorio digital --- Control+Shift+Ñ es el mejor comando de la
-        historia carnal
+        Observatorio digital
       </h1>
-      TY
+
       {loading ? ( // ? es un if
         <p>cargando</p>
       ) : globalError ? ( // : es un else
@@ -68,18 +63,16 @@ export default function Home() {
       ) : (
         <div>
           {states.length > 0 ? (
-            <div className="states-list containegitr">
+            <div className="states-list container">
               <Card1
                 title="Alertas del mes"
                 text="Número de alertas del mes."
               ></Card1>
               <Card2
-                value="Verdesote"
                 title="Alertas Máximas"
                 text="Número de alertas máximas."
               ></Card2>
               <Card1
-                value="Verdecito"
                 title="Alertas por estado"
                 text="Número de alertas por estado."
               ></Card1>
