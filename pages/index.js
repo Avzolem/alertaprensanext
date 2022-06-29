@@ -68,7 +68,7 @@ export default function Home() {
       ) : (
         <div>
           {states.length > 0 ? (
-            <div className="states-list container">
+            <div className="states-list containegitr">
               <Card1
                 title="Alertas del mes"
                 text="Número de alertas del mes."
