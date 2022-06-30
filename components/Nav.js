@@ -1,4 +1,3 @@
-/* This example requires Tailwind CSS v2.0+ */
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
@@ -9,7 +8,7 @@ function classNames(...classes) {
 
 export default function Nav() {
   return (
-    <Disclosure as="nav" className="bg-teal-600">
+    <Disclosure as="nav" className=" flex bg-teal-600">
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -19,12 +18,12 @@ export default function Nav() {
                   <img
                     className="block lg:hidden h-8 w-auto"
                     src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
-                    alt="Workflow"
+                    alt="Observatorio Digital"
                   />
                   <img
                     className="hidden lg:block h-8 w-auto"
                     src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
-                    alt="Workflow"
+                    alt="Observatorio Digital"
                   />
                 </div>
                 <div className="hidden sm:block sm:ml-6">

@@ -70,17 +70,13 @@ export default function Home() {
 
               <div className="container">
                 <Card1
-                  title="Alertas del mes"
-                  text="Número de alertas del mes."
+                  title="Reportes de amenazas"
+                  text="Número de reportes de amenazas blah blah blah blah blah"
                 ></Card1>
                 <Card2
                   title="Alertas Máximas"
-                  text="Número de alertas máximas."
+                  text="Número de alertas máximas"
                 ></Card2>
-                <Card1
-                  title="Alertas por estado"
-                  text="Número de alertas por estado."
-                ></Card1>
               </div>
               <div className="container md:flex-none ">
                 <Map
