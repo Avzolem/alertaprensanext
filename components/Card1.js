@@ -9,7 +9,7 @@ function Card1(props) {
           <h2 className="card-title text-emerald-300">{title}</h2>
           <p>{text}</p>
           <div className="card-actions justify-end">
-            <button className="btn">Consulta</button>
+            <button className="btn bg-cyan-800">Consulta</button>
           </div>
         </div>
       </div>
