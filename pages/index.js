@@ -5,7 +5,7 @@ import ReactTooltip from "react-tooltip";
 import Nav from "../components/Nav";
 import Card1 from "../components/Card1";
 import Card2 from "../components/Card2";
-
+import Footer from "../components/Footer";
 export default function Home() {
   const [states, setStates] = useState([]); //para guardar el arreglo de los estados que viene del API, inicia en vacio
   const [loading, setLoading] = useState(false); // estado para mostrar que esta cargando
@@ -97,6 +97,7 @@ export default function Home() {
           )}
         </div>
       )}
+      <Footer></Footer>
     </div>
   );
 }
