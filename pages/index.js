@@ -6,6 +6,8 @@ import Nav from "../components/Nav";
 import Card1 from "../components/Card1";
 import Card2 from "../components/Card2";
 import Footer from "../components/Footer";
+import MainLayout from "../components/Layouts/MainLayout";
+
 export default function Home() {
   const [states, setStates] = useState([]); //para guardar el arreglo de los estados que viene del API, inicia en vacio
   const [loading, setLoading] = useState(false); // estado para mostrar que esta cargando
@@ -52,38 +54,37 @@ export default function Home() {
   // checar condicionales rernarias
   return (
     <div className="bg-stone-200">
-      <Nav></Nav>
+      <MainLayout>
+        {loading ? ( // ? es un if
+          <p>cargando</p>
+        ) : globalError ? ( // : es un else
+          globalError
+        ) : (
+          <div className="">
+            {states.length > 0 ? (
+              <div className="states-list container flex sm:flex-none">
+                {/* Aquí van los componentes Card */}
+                {/* componente de mapa, se le manda la lista de estados del API, y se le manda el set de content*/}
 
-      {loading ? ( // ? es un if
-        <p>cargando</p>
-      ) : globalError ? ( // : es un else
-        globalError
-      ) : (
-        <div className="">
-          {states.length > 0 ? (
-            <div className="states-list container flex sm:flex-none">
-              {/* Aquí van los componentes Card */}
-              {/* componente de mapa, se le manda la lista de estados del API, y se le manda el set de content*/}
-
-              <div className="container">
-                <Card1
-                  title="Reportes de amenazas"
-                  text="Número de reportes de amenazas blah blah blah blah blah"
-                ></Card1>
-                <Card2
-                  title="Alertas Máximas"
-                  text="Número de alertas máximas"
-                ></Card2>
-              </div>
-              <div className="container md:flex-none ">
-                <Map
-                  className=""
-                  setTooltipContent={setContent}
-                  states={states}
-                />
-              </div>
-              <ReactTooltip backgroundColor="#f6755b">{content}</ReactTooltip>
-              {/*<ul>
+                <div className="container">
+                  <Card1
+                    title="Reportes de amenazas"
+                    text="Número de reportes de amenazas blah blah blah blah blah"
+                  ></Card1>
+                  <Card2
+                    title="Alertas Máximas"
+                    text="Número de alertas máximas"
+                  ></Card2>
+                </div>
+                <div className="container md:flex-none ">
+                  <Map
+                    className=""
+                    setTooltipContent={setContent}
+                    states={states}
+                  />
+                </div>
+                <ReactTooltip backgroundColor="#f6755b">{content}</ReactTooltip>
+                {/*<ul>
                   {states.map((state, index) => (
                     <li key={index}>
                       <p>Nombre: {state.name}</p>
@@ -91,13 +92,13 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>*/}
-            </div>
-          ) : (
-            <p>No hay estados</p>
-          )}
-        </div>
-      )}
-      <Footer></Footer>
+              </div>
+            ) : (
+              <p>No hay estados</p>
+            )}
+          </div>
+        )}
+      </MainLayout>
     </div>
   );
 }
