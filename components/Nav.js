@@ -7,7 +7,7 @@ const navigation = [
   { name: "Inicio", href: "#", current: true },
   { name: "Reporte de alertas", href: "#", current: false },
   { name: "Noticias", href: "#", current: false },
-  { name: "Blog", href: "#", current: false },
+  { name: "Blog", href: "../blog", current: false },
   { name: "Cursos", href: "#", current: false },
 ];
 
