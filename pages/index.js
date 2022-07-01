@@ -19,9 +19,9 @@ export default function Home() {
       setLoading(true); //inicia loading true
       try {
         const response = await axios.get(
-          "http://148.229.5.95:3000/maps/all_states" // Para pruebas locales cambiar a /api/states/
+          "/api/states" // Para pruebas en el server cambiar a "http://148.229.5.95:3000/maps/all_states"
         ); //le hace GET a el api de estados, el await no se puede utilizar si la funcion padre no tiene Async
-        const responseStates = response.data; //Para pruebas locales cambiar response.data.all_states;
+        const responseStates = response.data.all_states; //Para pruebas en el server cambiar a response.data ;
         //gets minimum and maximum of reports of states
         const minValue = Math.min(
           ...responseStates.map((state) => state.reports)
