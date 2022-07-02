@@ -5,7 +5,7 @@ const StateDetailPage = () => {
   const router = useRouter();
   const { stateId } = router.query;
   return (
-    <MainLayout className="bg-stone-200">
+    <MainLayout>
       <p>Mostrar aqui la info del estado {stateId}</p>
     </MainLayout>
   );
