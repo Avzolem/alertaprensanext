@@ -1,6 +1,6 @@
 const posts = [
   {
-    title: "Noticia 1",
+    title: "Noticia ",
     href: "#",
     category: { name: "Artículo", href: "#" },
     description:
@@ -8,7 +8,7 @@ const posts = [
     date: "Mar 16, 2020",
     datetime: "2020-03-16",
     imageUrl:
-      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80",
+      "https://images.unsplash.com/photo-1606652801338-914a8456b398?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=972&q=80",
     readingTime: "6 min",
     author: {
       name: "Raúl Arnulfo",
@@ -26,7 +26,7 @@ const posts = [
     date: "Mar 10, 2020",
     datetime: "2020-03-10",
     imageUrl:
-      "https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80",
+      "https://images.unsplash.com/photo-1557089041-7fa93ffc2e08?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80",
     readingTime: "4 min",
     author: {
       name: "Brenda Gutierrez",
@@ -44,7 +44,7 @@ const posts = [
     date: "Feb 12, 2020",
     datetime: "2020-02-12",
     imageUrl:
-      "https://images.unsplash.com/photo-1492724441997-5dc865305da7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80",
+      "https://images.unsplash.com/photo-1616337759196-e9718183f463?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
     readingTime: "11 min",
     author: {
       name: "Daniela Martinez",
