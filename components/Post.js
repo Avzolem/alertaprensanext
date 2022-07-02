@@ -1,6 +1,6 @@
 const posts = [
   {
-    title: "Boost your conversion rate",
+    title: "Noticia 1",
     href: "#",
     category: { name: "Artículo", href: "#" },
     description:
@@ -18,7 +18,7 @@ const posts = [
     },
   },
   {
-    title: "How to use search engine optimization to drive sales",
+    title: "Noticia 2",
     href: "#",
     category: { name: "Video", href: "#" },
     description:
@@ -36,7 +36,7 @@ const posts = [
     },
   },
   {
-    title: "Improve your customer experience",
+    title: "Noticia 3",
     href: "#",
     category: { name: "Investigación", href: "#" },
     description:
