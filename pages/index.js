@@ -8,11 +8,13 @@ import Card2 from "../components/Card2";
 import Footer from "../components/Footer";
 import MainLayout from "../components/Layouts/MainLayout";
 
-export default function Home() {
+export default function Home({message}) {
   const [states, setStates] = useState([]); //para guardar el arreglo de los estados que viene del API, inicia en vacio
   const [loading, setLoading] = useState(false); // estado para mostrar que esta cargando
   const [globalError, setGlobalError] = useState(null); //para mostrar si hay un error trayendo informacion
   const [content, setContent] = useState(""); //para guardar el texto que va en el tooltip cuando se hace hover en un estado del mapa
+
+  console.log("message =>", message)
 
   // esto se ejecuta una vez, una vez que el componente se monta
   useEffect(() => {
@@ -101,4 +103,14 @@ export default function Home() {
       </MainLayout>
     </div>
   );
+}
+
+
+export async function getServerSideProps(context) {
+  console.log("hola")
+  return {
+    props: {
+      message: "hello"
+    }, // will be passed to the page component as props
+  }
 }
