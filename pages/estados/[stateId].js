@@ -6,7 +6,7 @@ const StateDetailPage = () => {
   const { stateId } = router.query;
   return (
     <MainLayout>
-      <p>Mostrar aqui la info del estado {stateId}</p>
+      <h1>Mostrar aqui la info del estado {stateId}</h1>
     </MainLayout>
   );
 };
