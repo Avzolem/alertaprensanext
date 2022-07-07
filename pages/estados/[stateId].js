@@ -6,6 +6,13 @@ const StateDetailPage = () => {
   const { stateId } = router.query;
   return (
     <MainLayout>
+      <div>
+        <img
+          src={`/images/states/${stateId}.png`}
+          alt={`Imagen del estado ${stateId}`}
+        ></img>
+      </div>
+
       <h1>Mostrar aqui la info del estado {stateId}</h1>
     </MainLayout>
   );
