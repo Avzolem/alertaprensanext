@@ -23,7 +23,7 @@ export default function Home() {
       setLoading(true); //inicia loading true
       try {
         const response = await axios.get(
-          process.env.NEXT_PUBLIC_API_STATES_URL
+          `${process.env.NEXT_PUBLIC_API_URL}/api/states`
           // Para pruebas en el server cambiar a "http://148.229.5.95:3000/maps/all_states"
         ); //le hace GET a el api de estados, el await no se puede utilizar si la funcion padre no tiene Async
         const responseStates = response.data.all_states; //Para pruebas en el server cambiar a response.data ;
@@ -49,7 +49,7 @@ export default function Home() {
         setStates(parsedStates); //actualiza el estado de react con los estados de mexico que regreso el API
 
         const responsealerts = await axios.get(
-          process.env.NEXT_PUBLIC_API_ALERTS_URL
+          `${process.env.NEXT_PUBLIC_API_URL}/api/alerts`
           // Para pruebas en el server cambiar a "http://148.229.5.95:3000/maps/all_states"
         );
         const responseAlerts = responsealerts.data.all_states; //Para pruebas en el server cambiar a response.data ;
