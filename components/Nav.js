@@ -1,13 +1,12 @@
-/* This example requires Tailwind CSS v2.0+ */
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 
 const navigation = [
-  { name: "Inicio", href: "/", current: true },
-  { name: "Reporte de alertas", href: "../reporte", current: false },
+  { name: "Inicio", href: "/", current: false },
+  // { name: "Reporte de alertas", href: "../reporte", current: false },
   { name: "Noticias", href: "../noticias", current: false },
-  { name: "Blog", href: "../blog", current: false },
+  // { name: "Blog", href: "../blog", current: false },
   { name: "Cursos", href: "../cursos", current: false },
 ];
 

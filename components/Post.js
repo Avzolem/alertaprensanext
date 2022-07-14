@@ -67,8 +67,8 @@ export default function Post() {
             Noticias Relacionadas
           </h2>
           <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa
-            libero labore natus atque, ducimus sed.
+            Aquí van las pequeñas noticias relacionadas, aunque esto realmente
+            es un subtítulo.
           </p>
         </div>
         <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
