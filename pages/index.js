@@ -1,20 +1,20 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Map from "../components/Map";
+import Map2 from "../components/Map2";
 import ReactTooltip from "react-tooltip";
 import Nav from "../components/Nav";
-import Card1 from "../components/Card1";
-import Card2 from "../components/Card2";
 import Footer from "../components/Footer";
 import MainLayout from "../components/Layouts/MainLayout";
+import Card from "../components/Card";
 
-export default function Home({ message }) {
+export default function Home() {
   const [states, setStates] = useState([]); //para guardar el arreglo de los estados que viene del API, inicia en vacio
+  const [alerts, setAlerts] = useState([]);
   const [loading, setLoading] = useState(false); // estado para mostrar que esta cargando
   const [globalError, setGlobalError] = useState(null); //para mostrar si hay un error trayendo informacion
   const [content, setContent] = useState(""); //para guardar el texto que va en el tooltip cuando se hace hover en un estado del mapa
-
-  console.log("message =>", message);
+  const [maploader, setMapLoader] = useState("reportsMap");
 
   // esto se ejecuta una vez, una vez que el componente se monta
   useEffect(() => {
@@ -23,15 +23,20 @@ export default function Home({ message }) {
       setLoading(true); //inicia loading true
       try {
         const response = await axios.get(
-          "/api/states" // Para pruebas en el server cambiar a "http://148.229.5.95:3000/maps/all_states"
+          process.env.NEXT_PUBLIC_API_STATES_URL
+          // Para pruebas en el server cambiar a "http://148.229.5.95:3000/maps/all_states"
         ); //le hace GET a el api de estados, el await no se puede utilizar si la funcion padre no tiene Async
         const responseStates = response.data.all_states; //Para pruebas en el server cambiar a response.data ;
         //gets minimum and maximum of reports of states
         const minValue = Math.min(
-          ...responseStates.map((state) => state.reports)
+          ...responseStates.map((state) => {
+            return state.reports;
+          })
         );
         const maxValue = Math.max(
-          ...responseStates.map((state) => state.reports)
+          ...responseStates.map((state) => {
+            return state.reports;
+          })
         );
         const parsedStates = responseStates.map((state) => {
           const newState = { ...state };
@@ -42,6 +47,31 @@ export default function Home({ message }) {
         });
 
         setStates(parsedStates); //actualiza el estado de react con los estados de mexico que regreso el API
+
+        const responsealerts = await axios.get(
+          process.env.NEXT_PUBLIC_API_ALERTS_URL
+          // Para pruebas en el server cambiar a "http://148.229.5.95:3000/maps/all_states"
+        );
+        const responseAlerts = responsealerts.data.all_states; //Para pruebas en el server cambiar a response.data ;
+        //gets minimum and maximum of reports of states
+        const minValuetwo = Math.min(
+          ...responseAlerts.map((state) => state.alerts)
+        );
+        const maxValuetwo = Math.max(
+          ...responseAlerts.map((state) => state.alerts)
+        );
+        const parsedAlerts = responseAlerts.map((state) => {
+          const newState = { ...state };
+          //set opacity from 0 to 1 using min and max values
+          newState.opacity =
+            (state.alerts - minValuetwo) / (maxValuetwo - minValuetwo); //
+          newState.url = `/estados/${state.state_code}`;
+          return newState;
+        });
+
+        console.log(parsedAlerts);
+
+        setAlerts(parsedAlerts);
       } catch (error) {
         console.log(error);
         setGlobalError("Ocurrio un error trayendo la informacion del server"); //Cachea el error
@@ -62,31 +92,49 @@ export default function Home({ message }) {
         ) : globalError ? ( // : es un else
           globalError
         ) : (
-          <div className="">
-            {states.length > 0 ? (
-              <div className="states-list container flex sm:flex-none">
-                {/* Aquí van los componentes Card */}
-                {/* componente de mapa, se le manda la lista de estados del API, y se le manda el set de content*/}
+          <div>
+            <div className="container">
+              {states.length > 0 ? (
+                <div className="">
+                  <div className="">
+                    <div className="states-list container md:flex">
+                      {/* Aquí van los componentes Card */}
+                      {/* componente de mapa, se le manda la lista de estados del API, y se le manda el set de content*/}
 
-                <div className="container">
-                  <Card1
-                    title="Reportes de amenazas"
-                    text="Número de reportes de amenazas blah blah blah blah blah"
-                  ></Card1>
-                  <Card2
-                    title="Alertas Máximas"
-                    text="Número de alertas máximas"
-                  ></Card2>
-                </div>
-                <div className="container md:flex-none ">
-                  <Map
-                    className=""
-                    setTooltipContent={setContent}
-                    states={states}
-                  />
-                </div>
-                <ReactTooltip backgroundColor="#f6755b">{content}</ReactTooltip>
-                {/*<ul>
+                      <div className="container">
+                        <Card
+                          title="Soy titulo"
+                          text="soy mensaje"
+                          type="reportsMap"
+                          setMapLoader={setMapLoader}
+                        />
+                        <Card
+                          title="Soy titalrulo"
+                          text="soy mensaje"
+                          type="alertsMap"
+                          setMapLoader={setMapLoader}
+                        />
+                      </div>
+                      <div className="container md:flex-none">
+                        {maploader === "reportsMap" && (
+                          <Map
+                            className=""
+                            setTooltipContent={setContent}
+                            states={states}
+                          />
+                        )}
+                        {maploader === "alertsMap" && (
+                          <Map2
+                            className=""
+                            setTooltipContent={setContent}
+                            alerts={alerts}
+                          />
+                        )}
+                      </div>
+                      <ReactTooltip backgroundColor="#f6755b">
+                        {content}
+                      </ReactTooltip>
+                      {/*<ul>
                   {states.map((state, index) => (
                     <li key={index}>
                       <p>Nombre: {state.name}</p>
@@ -94,22 +142,16 @@ export default function Home({ message }) {
                     </li>
                   ))}
                 </ul>*/}
-              </div>
-            ) : (
-              <p>No hay estados</p>
-            )}
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <p>No hay estados</p>
+              )}
+            </div>
           </div>
         )}
       </MainLayout>
     </div>
   );
-}
-
-export async function getServerSideProps(context) {
-  console.log("hola");
-  return {
-    props: {
-      message: "hello",
-    }, // will be passed to the page component as props
-  };
 }

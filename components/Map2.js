@@ -3,8 +3,8 @@
 import { ComposableMap, Geographies, Geography } from "react-simple-maps";
 import geoUrl from "../data/mx.json"; //lista de estados con cordenadas para poder pintar el mapa
 
-const Map = ({ setTooltipContent, states }) => {
-  if (!states) return null; //if no states, return null
+const Map2 = ({ setTooltipContent, alerts }) => {
+  if (alerts) return null; //if no alerts, return null
 
   //esos functions de getTooltiptext, opacity etc, podrian ser una rola que regrese el match.
   //pero bueno, asi funcionan :)
@@ -13,12 +13,12 @@ const Map = ({ setTooltipContent, states }) => {
   //devuelve un texto que se pone en el tooltip
   const getToolTipText = (stateCodeHover) => {
     let text = "";
-    const match = states.find((state) => {
+    const match = alerts.find((state) => {
       return state.state_code === stateCodeHover;
     });
 
     if (match) {
-      text = `${match.name} - ${match.reports} Alertas Maximas`;
+      text = `${match.name} - ${match.alerts} Alertas Maximas`;
     } else {
       text = "No hay informacion";
     }
@@ -28,7 +28,7 @@ const Map = ({ setTooltipContent, states }) => {
 
   //returns opacity value of state
   const getOpacityValueForState = (stateCode) => {
-    const match = states.find((state) => {
+    const match = alerts.find((state) => {
       return state.state_code === stateCode;
     });
 
@@ -41,7 +41,7 @@ const Map = ({ setTooltipContent, states }) => {
 
   //gets url for state
   const getUrlForState = (stateCode) => {
-    const match = states.find((state) => {
+    const match = alerts.find((state) => {
       return state.state_code === stateCode;
     });
 
@@ -123,4 +123,4 @@ const Map = ({ setTooltipContent, states }) => {
   );
 };
 
-export default Map;
+export default Map2;

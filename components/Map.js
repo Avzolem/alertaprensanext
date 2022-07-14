@@ -59,8 +59,8 @@ const Map = ({ setTooltipContent, states }) => {
       projection="geoAlbers"
       projectionConfig={{
         center: [0, 20],
-        height: [100],
-        width: [100],
+        height: [600],
+        width: [600],
       }}
     >
       <Geographies
