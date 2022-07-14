@@ -31,11 +31,7 @@ const StateDetailPage = () => {
             ></img>
           </div>
           <div className="pt-6 place-content-end ">
-            <MaxAlert
-              title="Alertas Máximas"
-              text="200"
-              className="pt-6 pb-6"
-            />
+            <MaxAlert title="Alertas Máximas" text="200" className="p-6" />
             {postsData.map((post) => (
               <PostCard key={post.id} title={post.title} text={post.text} />
             ))}
