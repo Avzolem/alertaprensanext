@@ -42,18 +42,20 @@ const StateDetailPage = () => {
         );
         const responseAlerts = response.data.all_states;
 
+        console.log("responseAlerts", responseAlerts);
+
         //find object with stateid in responsealAerts
-        const matchedAlert = responseAlerts.find((state) => {
-          return state.state_code === parseInt(stateId);
+        const matchedAlert = responseAlerts.find((alert) => {
+          return alert.state_code === parseInt(stateId);
         });
 
         if (!matchedAlert) {
+          setGlobalError("No existe alerta para este estado");
           setLoading(false);
-          setGlobalError("Esta pagina no existe");
           return;
         }
 
-        console.log("matchedAlert ", matchedAlert);
+        console.log("matchedAlert", matchedAlert);
 
         setContent(matchedAlert);
         setLoading(false);
@@ -65,8 +67,9 @@ const StateDetailPage = () => {
         setLoading(false);
       }
     };
-    getData(); //Ejecuta el GetData
-  }, []);
+    console.log("Estoy en el useEffect", stateId);
+    if (stateId) getData(); //Ejecuta el GetData
+  }, [router.query]);
 
   return (
     <MainLayout>
