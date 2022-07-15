@@ -84,11 +84,13 @@ const StateDetailPage = () => {
                 ></img>
               </div>
               <div className="pt-6 place-content-end ">
-                <MaxAlert
-                  title="Alertas Máximas"
-                  text={content.alerts}
-                  className=""
-                />
+                {content && (
+                  <MaxAlert
+                    title="Alertas Máximas"
+                    text={content.alerts}
+                    className=""
+                  />
+                )}
                 {postsData.map((post) => (
                   <PostCard key={post.id} title={post.title} text={post.text} />
                 ))}
