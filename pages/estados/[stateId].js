@@ -101,8 +101,6 @@ const StateDetailPage = () => {
                 ))}
               </div>
             </div>
-
-            <h1>Mostrar aqui la info del estado {stateId}</h1>
           </div>
         )}
       </div>
