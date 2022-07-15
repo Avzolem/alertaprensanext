@@ -109,16 +109,16 @@ export default function Home() {
                   <div className="container flex flex-col justify-start items-center">
                     <div className="cardcontainer flex justify-center w-full mt-4">
                       <Card
-                        title="Soy titulo"
-                        text="soy mensaje"
+                        title="Reporte de alertas"
+                        text="Mapa de reportes de alertas de riesgos periodísticos por estado"
                         type="reportsMap"
                         setMapLoader={setMapLoader}
                       />
                     </div>
                     <div className="mt-4 flex justify-center mb-4 w-full ">
                       <Card
-                        title="Soy titalrulo"
-                        text="soy mensaje"
+                        title="Alertas máximas"
+                        text="Mapa de alertas máxitmas por estado"
                         type="alertsMap"
                         setMapLoader={setMapLoader}
                       />
