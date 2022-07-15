@@ -17,7 +17,7 @@ const Card = ({ title, text, type, setMapLoader }) => {
           <p>{text}</p>
           <div className="card-actions justify-end">
             <button
-              className="btn bg-cyan-800"
+              className="btn bg-neutral-600"
               onClick={() => setMapLoader(type)}
             >
               Consulta
