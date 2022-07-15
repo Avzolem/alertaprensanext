@@ -34,6 +34,7 @@ const StateDetailPage = () => {
     //esta funcion consume el servicio del API
     const getData = async () => {
       setLoading(true); //inicia loading true
+      setGlobalError(null);
       try {
         const response = await axios.get(
           `${process.env.NEXT_PUBLIC_API_URL}/api/alerts`
@@ -47,6 +48,7 @@ const StateDetailPage = () => {
         });
 
         if (!matchedAlert) {
+          setLoading(false);
           setGlobalError("Esta pagina no existe");
           return;
         }
@@ -54,14 +56,14 @@ const StateDetailPage = () => {
         console.log("matchedAlert ", matchedAlert);
 
         setContent(matchedAlert);
+        setLoading(false);
 
         console.log("Este es el content de content ", content);
       } catch (error) {
         console.log(error);
         setGlobalError("Ocurrio un error trayendo la informacion del server"); //Cachea el error
+        setLoading(false);
       }
-
-      setLoading(false);
     };
     getData(); //Ejecuta el GetData
   }, []);
