@@ -32,6 +32,7 @@ const StateDetailPage = () => {
             <img
               src={`/images/states/${stateId}.png`}
               alt={`Imagen del estado ${stateId}`}
+              className="h-full w-full object-cover"
             ></img>
           </div>
           <div className="pt-6 place-content-end ">
