@@ -39,16 +39,18 @@ export default function Home() {
             return state.reports;
           })
         );
+
         const parsedStates = responseStates.map((state) => {
           const newState = { ...state };
           //set opacity from 0 to 1 using min and max values
           newState.opacity =
-            (state.reports - minValue) / (maxValue - minValue) + 0.3; // (state.reports - minValue) / (maxValue - minValue);
+            (state.reports - minValue) / (maxValue - minValue) + 0.15; // (state.reports - minValue) / (maxValue - minValue);
           newState.url = `/estados/${state.state_code}`;
           return newState;
         });
 
         setStates(parsedStates); //actualiza el estado de react con los estados de mexico que regreso el API
+        console.log("Esto es el primer arreglo", states);
 
         const responsealerts = await axios.get(
           `${process.env.NEXT_PUBLIC_API_URL}/api/alerts`
@@ -66,14 +68,29 @@ export default function Home() {
           const newState = { ...state };
           //set opacity from 0 to 1 using min and max values
           newState.opacity =
-            (state.alerts - minValuetwo) / (maxValuetwo - minValuetwo) + 0.3; //
+            (state.alerts - minValuetwo) / (maxValuetwo - minValuetwo) + 0.15; //
           newState.url = `/estados/${state.state_code}`;
           return newState;
         });
 
-        console.log(parsedAlerts);
-
         setAlerts(parsedAlerts);
+
+        console.log("Esto es el segundo arreglo", alerts);
+
+        //Aqui se hace la suma de los reportes
+
+        var totalReports = states.reduce(
+          (sum, value) => sum + value.reports,
+          0
+        );
+        console.log(totalReports);
+
+        //Aqui se hace la suma de las alertas
+
+        var totalAlerts = alerts.reduce((sum, value) => sum + value.alerts, 0);
+        console.log(totalAlerts);
+
+        //
       } catch (error) {
         console.log(error);
         setGlobalError("Ocurrio un error trayendo la informacion del server"); //Cachea el error
