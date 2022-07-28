@@ -154,7 +154,7 @@ export default function Home() {
                 )}{" "}
               </div>
               <div className="w-7/12">
-                <div className="hidden container lg:flex h-[600px] w-[700px] overflow-hidden ">
+                <div className="hidden container lg:flex h-[600px] w-[700px] overflow-hidden xl:flex  xl:h-[900px] xl:w-[1000px]  ">
                   {maploader === "reportsMap" && (
                     <>
                       <Map

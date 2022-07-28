@@ -16,7 +16,8 @@ const Card = ({ title, text, type, setMapLoader, total }) => {
           </h2>
           <p>{text}</p>
 
-          <div className="card-actions justify-end">
+          <div className="card-actions place-content-center">
+            <p className="text-bold font-bold text-3xl">Total</p>
             <p className="text-bold font-extrabold text-3xl">{total}</p>
             <button
               className="btn bg-neutral-600"
