@@ -70,7 +70,7 @@ export default function Example() {
                 <blockquote className="mt-8">
                   <div className="relative text-lg font-medium text-white md:flex-grow">
                     <svg
-                      className="absolute top-0 left-0 transform -translate-x-3 -translate-y-2 h-8 w-8 text-indigo-400"
+                      className="absolute top-0 left-0 transform -translate-x-3 -translate-y-2 h-8 w-8 text-teal-400"
                       fill="currentColor"
                       viewBox="0 0 32 32"
                       aria-hidden="true"
@@ -84,7 +84,7 @@ export default function Example() {
                   </div>
 
                   <footer className="mt-4">
-                    <p className="text-base font-semibold text-indigo-200">
+                    <p className="text-base font-semibold text-teal-200">
                       Ariel Andersen, CEO de Observatorio Digital de Riesgos
                       Periodísticos
                     </p>
