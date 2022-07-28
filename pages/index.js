@@ -129,7 +129,7 @@ export default function Home() {
         ) : (
           <div className="wrapper   lg:max-w-6xl w-full ">
             <div className="container flex flex-col lg:flex-row lg:justify-between justify-center items-center w-full ">
-              <div className="w-full  lg:max-w-full lg:w-5/12  xl:max-w-full xl:w-full">
+              <div className="w-full  lg:max-w-full lg:w-5/12">
                 {states.length > 0 && (
                   <div className="container flex flex-col justify-start items-center">
                     <div className="cardcontainer flex justify-center w-full mt-4">
