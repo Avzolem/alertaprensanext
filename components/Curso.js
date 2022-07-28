@@ -8,7 +8,7 @@ const stats = [
 
 export default function Example() {
   return (
-    <div className="relative bg-white py-16 sm:py-24">
+    <div className="relative bg-white py-16 sm:py-24 2xl:flex  2xl:h-[1200px]  2xl:w-full">
       <div className="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:gap-24 lg:items-start">
         <div className="relative sm:py-16 lg:py-0">
           <div
