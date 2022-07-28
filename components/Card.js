@@ -2,7 +2,7 @@ const Card = ({ title, text, type, setMapLoader, total }) => {
   return (
     <div className="mx-4 w-full  lg:mx-8">
       <div
-        className={`card w-full lg:w-96 ${
+        className={`card w-full lg:w-96 xl:w-auto ${
           type === "reportsMap" ? "bg-cyan-700" : "bg-teal-900"
         } text-primary-content`}
       >

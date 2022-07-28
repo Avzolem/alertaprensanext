@@ -129,7 +129,7 @@ export default function Home() {
         ) : (
           <div className="wrapper   lg:max-w-6xl w-full ">
             <div className="container flex flex-col lg:flex-row lg:justify-between justify-center items-center w-full ">
-              <div className="w-full  lg:max-w-full lg:w-5/12">
+              <div className="w-full  lg:max-w-full lg:w-5/12  xl:max-w-full xl:w-full">
                 {states.length > 0 && (
                   <div className="container flex flex-col justify-start items-center">
                     <div className="cardcontainer flex justify-center w-full mt-4">
@@ -154,7 +154,7 @@ export default function Home() {
                 )}{" "}
               </div>
               <div className="w-7/12">
-                <div className="hidden container lg:flex h-[600px] w-[700px] overflow-hidden xl:flex  xl:h-[900px] xl:w-[1000px] 2xl:flex  2xl:h-[1200px] 2xl:w-[1300px]  ">
+                <div className="hidden container lg:flex h-[600px] w-[700px] overflow-hidden xl:flex  xl:h-[800px] xl:w-[1000px] xl:overflow-hidden ">
                   {maploader === "reportsMap" && (
                     <>
                       <Map
