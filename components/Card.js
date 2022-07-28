@@ -1,4 +1,4 @@
-const Card = ({ title, text, type, setMapLoader }) => {
+const Card = ({ title, text, type, setMapLoader, total }) => {
   return (
     <div className="mx-4 w-full  lg:mx-8">
       <div
@@ -15,7 +15,10 @@ const Card = ({ title, text, type, setMapLoader }) => {
             {title}
           </h2>
           <p>{text}</p>
-          <div className="card-actions justify-end">
+
+          <div className="card-actions place-content-center">
+            <p className="text-bold font-bold text-3xl">Total</p>
+            <p className="text-bold font-extrabold text-3xl">{total}</p>
             <button
               className="btn-sm bg-greynew"
               onClick={() => setMapLoader(type)}

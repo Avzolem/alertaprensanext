@@ -16,12 +16,15 @@ export default function Home() {
   const [globalError, setGlobalError] = useState(null); //para mostrar si hay un error trayendo informacion
   const [content, setContent] = useState(""); //para guardar el texto que va en el tooltip cuando se hace hover en un estado del mapa
   const [maploader, setMapLoader] = useState("reportsMap");
+  const [totalalerts, setTotalalerts] = useState("");
+  const [totalreports, setTotalreports] = useState("");
 
   // esto se ejecuta una vez, una vez que el componente se monta
   useEffect(() => {
     //esta funcion consume el servicio del API
     const getData = async () => {
       setLoading(true); //inicia loading true
+      setGlobalError(null);
       try {
         const response = await axios.get(
           `${process.env.NEXT_PUBLIC_API_URL}/api/states`
@@ -50,13 +53,13 @@ export default function Home() {
         });
 
         setStates(parsedStates); //actualiza el estado de react con los estados de mexico que regreso el API
-        console.log("Esto es el primer arreglo", states);
+        console.log("Esto es el primer arreglo", parsedStates);
 
         const responsealerts = await axios.get(
           `${process.env.NEXT_PUBLIC_API_URL}/api/alerts`
           // Para pruebas en el server cambiar a "http://148.229.5.95:3000/maps/all_states"
         );
-        const responseAlerts = responsealerts.data.all_states; //Para pruebas en el server cambiar a response.data ;
+        const responseAlerts = responsealerts.data.all_states; //Para pruebas en el server cambiar a response.data  ;
         //gets minimum and maximum of reports of states
         const minValuetwo = Math.min(
           ...responseAlerts.map((state) => state.alerts)
@@ -74,35 +77,40 @@ export default function Home() {
         });
 
         setAlerts(parsedAlerts);
-
-        console.log("Esto es el segundo arreglo", alerts);
+        console.log("Esto es el segundo arreglo", parsedAlerts);
 
         //Aqui se hace la suma de los reportes
-
-        var totalReports = states.reduce(
+        const sumreports = parsedStates.reduce(
           (sum, value) => sum + value.reports,
           0
         );
-        console.log(totalReports);
 
+        console.log("Total de Reportes:", sumreports);
+        setTotalreports(sumreports);
         //Aqui se hace la suma de las alertas
 
-        var totalAlerts = alerts.reduce((sum, value) => sum + value.alerts, 0);
-        console.log(totalAlerts);
+        const sumalerts = parsedAlerts.reduce(
+          (sum, value) => sum + value.alerts,
+          0
+        );
+
+        console.log("Total de Alertas:", sumalerts);
+        setTotalalerts(sumalerts);
+        setLoading(false);
 
         //
       } catch (error) {
         console.log(error);
         setGlobalError("Ocurrio un error trayendo la informacion del server"); //Cachea el error
+        setLoading(false);
       }
-
-      setLoading(false);
     };
+    console.log("Estoy en el useEffect");
     getData(); //Ejecuta el GetData
   }, []); // Se usan los [] para que se ejecute 1 sola vez el useeffect
 
   //todo lo que esta dentro de return en un componente de react es jsx (html)
-  // checar condicionales rernarias
+  // checar condicionales ternarias
   return (
     <MainLayout>
       <Head>
@@ -130,6 +138,7 @@ export default function Home() {
                         text="Mapeo de reportes de amenazas por estado"
                         type="reportsMap"
                         setMapLoader={setMapLoader}
+                        total={totalreports}
                       />
                     </div>
                     <div className="mt-4 flex justify-center mb-4 w-full ">
@@ -138,13 +147,14 @@ export default function Home() {
                         text="Mapeo del registro de las alertas máximas emitidas en México"
                         type="alertsMap"
                         setMapLoader={setMapLoader}
+                        total={totalalerts}
                       />
                     </div>
                   </div>
                 )}{" "}
               </div>
               <div className="w-7/12">
-                <div className="hidden container lg:flex h-[600px] w-[700px] overflow-hidden ">
+                <div className="hidden container lg:flex h-[600px] w-[700px] overflow-hidden xl:flex  xl:h-[800px] xl:w-[1000px] xl:overflow-hidden ">
                   {maploader === "reportsMap" && (
                     <>
                       <Map
