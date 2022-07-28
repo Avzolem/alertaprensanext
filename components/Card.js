@@ -2,14 +2,14 @@ const Card = ({ title, text, type, setMapLoader }) => {
   return (
     <div className="mx-4 w-full  lg:mx-8">
       <div
-        className={`card w-full lg:w-96 ${
-          type === "reportsMap" ? "bg-cyan-700" : "bg-teal-900"
-        } text-primary-content`}
+        className={`card rounded-md  w-full lg:w-80 h-40 ${
+          type === "reportsMap" ? "bg-azulgrey" : "bg-azuldark"
+        } text-primary-content text-sm`}
       >
         <div className="card-body">
           <h2
             className={`card-title ${
-              type === "reportsMap" ? "text-emerald-300" : "text-orange-400"
+              type === "reportsMap" ? "text-emerald-300" : "text-orangenew"
             }`}
           >
             {title}
@@ -17,7 +17,7 @@ const Card = ({ title, text, type, setMapLoader }) => {
           <p>{text}</p>
           <div className="card-actions justify-end">
             <button
-              className="btn bg-neutral-600"
+              className="btn-sm bg-greynew"
               onClick={() => setMapLoader(type)}
             >
               Consulta

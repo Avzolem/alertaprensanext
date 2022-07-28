@@ -119,23 +119,23 @@ export default function Home() {
         ) : globalError ? ( // : es un else
           globalError
         ) : (
-          <div className="wrapper   lg:max-w-6xl w-full ">
+          <div className="wrapper lg:max-w-6xl w-full ">
             <div className="container flex flex-col lg:flex-row lg:justify-between justify-center items-center w-full ">
               <div className="w-full  lg:max-w-full lg:w-5/12">
                 {states.length > 0 && (
                   <div className="container flex flex-col justify-start items-center">
-                    <div className="cardcontainer flex justify-center w-full mt-4">
-                      <Card
-                        title="Reporte de alertas"
-                        text="Mapa de reportes de alertas de riesgos periodísticos por estado"
+                    <div className="cardcontainer  flex justify-center w-full mt-4">
+                      <Card 
+                        title="Reporte de amenazas"
+                        text="Mapeo de reportes de amenazas por estado"
                         type="reportsMap"
                         setMapLoader={setMapLoader}
                       />
                     </div>
                     <div className="mt-4 flex justify-center mb-4 w-full ">
-                      <Card
+                      <Card 
                         title="Alertas máximas"
-                        text="Mapa de alertas máxitmas por estado"
+                        text="Mapeo del registro de las alertas máximas emitidas en México"
                         type="alertsMap"
                         setMapLoader={setMapLoader}
                       />

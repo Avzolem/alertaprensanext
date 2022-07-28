@@ -5,7 +5,15 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'azulgrey': '#3d6773',
+        'azuldark': '#1a353d',
+        'orangenew': '#f98d73',
+        'greynew': '#7da4a7',
+
+      }
+    },
   },
   plugins: [require("daisyui")],
 }
