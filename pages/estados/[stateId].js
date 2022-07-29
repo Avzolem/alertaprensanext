@@ -73,22 +73,22 @@ const StateDetailPage = () => {
 
   return (
     <MainLayout>
-      <div className="fullcontainer flex-col justify-center items-center w-auto xl:flex  xl:h-auto xl:w-full mb-32">
+      <div className="fullcontainer   justify-center items-center w-auto h-auto mb-32">
         {loading ? ( // ? es un if
           <p>cargando</p>
         ) : globalError ? ( // : es un else
           globalError
         ) : (
-          <div className="w-full flex  justify-center">
-            <div className="flex justify-between max-w-7xl w-full ">
+          <div className="w-auto  justify-center  ">
+            <div className=" flex flex-col justify-center md:flex-row md:justify-center md:w-full ">
               <div>
                 <img
                   src={`/images/states/${stateId}.png`}
                   alt={`Imagen del estado ${stateId}`}
-                  className="h-full w-full object-cover"
+                  className="h-auto w-auto pr-0 md:h-full md:w-full object-cover lg:pr-60"
                 ></img>
               </div>
-              <div className="pt-6 place-content-end ">
+              <div className="h-auto pt-6 place-content-end ">
                 {content && (
                   <MaxAlert
                     title="Alertas Máximas"
