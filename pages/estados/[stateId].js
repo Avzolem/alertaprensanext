@@ -73,7 +73,7 @@ const StateDetailPage = () => {
 
   return (
     <MainLayout>
-      <div className="fullcontainer flex justify-center items-center w-full 2xl:flex  2xl:h-[1200px] 2xl:w-screen">
+      <div className="fullcontainer flex-col justify-center items-center w-auto xl:flex  xl:h-auto xl:w-full mb-32">
         {loading ? ( // ? es un if
           <p>cargando</p>
         ) : globalError ? ( // : es un else
