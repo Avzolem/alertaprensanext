@@ -2,29 +2,28 @@ import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import MainLayout from "../../components/Layouts/MainLayout";
 import PostCard from "../../components/PostCard";
-import PostCard2 from "../../components/PostCard2";
 import MaxAlert from "../../components/MaxAlert";
 import axios from "axios";
 
-// const postsData = [
-//   {
-//     id: 1,
-//     title: "Reporte Ejemplo 1",
-//     text: "Soy ovíparo y quiero jugar con todos los niños como Chabelo.",
-//   },
-//   {
-//     id: 2,
-//     title: "Reporte Ejemplo 2",
-//     text: "Tu tío es una mamá muy buena.",
-//   },
-//   {
-//     id: 3,
-//     title: "Reporte Ejemplo 3",
-//     text: "¿Y si todas las estatuas griegas en realidad son víctimas de medusa?",
-//   },
-// ];
+const postsData = [
+  {
+    id: 1,
+    title: "Reporte Ejemplo 1",
+    text: "Soy ovíparo y quiero jugar con todos los niños como Chabelo.",
+  },
+  {
+    id: 2,
+    title: "Reporte Ejemplo 2",
+    text: "Tu tío es una mamá muy buena.",
+  },
+  {
+    id: 3,
+    title: "Reporte Ejemplo 3",
+    text: "¿Y si todas las estatuas griegas en realidad son víctimas de medusa?",
+  },
+];
 
-const StateDetailPage2 = () => {
+const StateDetailPage = () => {
   const router = useRouter();
   const { stateId } = router.query;
   const [loading, setLoading] = useState(false); // estado para mostrar que esta cargando
@@ -72,31 +71,6 @@ const StateDetailPage2 = () => {
     if (stateId) getData(); //Ejecuta el GetData
   }, [router.query]);
 
-  // Inicio de la parte de infinite scroll
-  const [posts, setPosts] = useState(postsData); // estado para guardar los posts
-  const [page, setPage] = useState(1); // estado para guardar la pagina actual
-  const [hasMore, setHasMore] = useState(true); // estado para saber si hay mas posts
-  const [loadingMore, setLoadingMore] = useState(false); // estado para mostrar que esta cargando
-  const [globalErrorMore, setGlobalErrorMore] = useState(null); // estado para mostrar que esta cargando
-  const [contentMore, setContentMore] = useState(null); // estado para mostrar que esta cargando
-  const [postsMore, setPostsMore] = useState([]); // estado para guardar los posts
-  const [pageMore, setPageMore] = useState(1); // estado para guardar la pagina actual
-
-  useEffect(() => {
-    const getReports = async () => {
-      try {
-        const response = await axios.get(
-          "https://62e2d20c3891dd9ba8f0755b.mockapi.io/api/reports"
-        );
-        console.log("response", response);
-        setReports(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getReports();
-  }, []);
-
   return (
     <MainLayout>
       <div className="fullcontainer flex justify-center items-center w-full 2xl:flex  2xl:h-[1200px] 2xl:w-screen">
@@ -122,23 +96,9 @@ const StateDetailPage2 = () => {
                     className=""
                   />
                 )}
-                {/* Inicia el código para traer los posts */}
-                {/* Este es el post card original */}
-                {/* {postsData.map((post) => (
+                {postsData.map((post) => (
                   <PostCard key={post.id} title={post.title} text={post.text} />
-                ))} */}
-                {/* Este es el post card con infinite scroll */}
-                <div>
-                  {posts && posts.length > 0 ? (
-                    <div>
-                      {posts.map((post, i) => (
-                        <PostCard2 key={i} data={post} />
-                      ))}
-                    </div>
-                  ) : (
-                    <p>No hay posts</p>
-                  )}
-                </div>
+                ))}
               </div>
             </div>
           </div>
@@ -148,4 +108,4 @@ const StateDetailPage2 = () => {
   );
 };
 
-export default StateDetailPage2;
+export default StateDetailPage;
