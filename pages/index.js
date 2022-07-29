@@ -133,7 +133,7 @@ export default function Home() {
                 {states.length > 0 && (
                   <div className="container flex flex-col justify-start items-center">
                     <div className="cardcontainer  flex justify-center w-full mt-4">
-                      <Card 
+                      <Card
                         title="Reporte de amenazas"
                         text="Mapeo de reportes de amenazas por estado"
                         type="reportsMap"
@@ -142,7 +142,7 @@ export default function Home() {
                       />
                     </div>
                     <div className="mt-4 flex justify-center mb-4 w-full ">
-                      <Card 
+                      <Card
                         title="Alertas máximas"
                         text="Mapeo del registro de las alertas máximas emitidas en México"
                         type="alertsMap"
