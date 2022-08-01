@@ -8,6 +8,7 @@ import Footer from "../components/Footer";
 import MainLayout from "../components/Layouts/MainLayout";
 import Card from "../components/Card";
 import Head from "next/head";
+import CardiB from "../components/CardiB";
 
 export default function Home() {
   const [states, setStates] = useState([]); //para guardar el arreglo de los estados que viene del API, inicia en vacio
@@ -128,7 +129,7 @@ export default function Home() {
           globalError
         ) : (
           <div className="wrapper lg:max-w-6xl w-full ">
-            <div className="container flex flex-col lg:flex-row lg:justify-between justify-center items-center w-full ">
+            <div className="container flex flex-col lg:flex-row lg:justify-between  justify-center items-center w-auto h-auto lg:w-full ">
               <div className="w-full  lg:max-w-full lg:w-5/12">
                 {states.length > 0 && (
                   <div className="container flex flex-col justify-start items-center">
@@ -141,7 +142,7 @@ export default function Home() {
                         total={totalreports}
                       />
                     </div>
-                    <div className="mt-4 flex justify-center mb-4 w-full ">
+                    <div className="mt-8 flex justify-center mb-4 w-full ">
                       <Card
                         title="Alertas máximas"
                         text="Mapeo del registro de las alertas máximas emitidas en México"
@@ -153,7 +154,7 @@ export default function Home() {
                   </div>
                 )}{" "}
               </div>
-              <div className="w-7/12">
+              <div className="flex justify-center mb-4 w-full  md:w-7/12">
                 <div className="hidden container lg:flex h-[600px] w-[700px] overflow-hidden xl:flex  xl:h-[800px] xl:w-[1000px] xl:overflow-hidden ">
                   {maploader === "reportsMap" && (
                     <>
@@ -180,6 +181,12 @@ export default function Home() {
                       </ReactTooltip>
                     </>
                   )}
+                </div>
+
+                <div className="lg:hidden container   flex flex-col justify-items-center">
+                  <div className="cardcontainer  flex justify-items-center w-full ">
+                    <CardiB title="Chihuahua" url="" />
+                  </div>
                 </div>
               </div>
             </div>
