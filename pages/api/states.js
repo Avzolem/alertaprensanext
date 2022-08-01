@@ -1,7 +1,7 @@
 export default function handler(req, res) {
   const states = {
     all_states: [
-      { name: "Ciudad de Mexico", state_code: 9, reports: 100 },
+      { name: "Ciudad de México", state_code: 9, reports: 100 },
       { name: "Guerrero", state_code: 12, reports: 50 },
       { name: "Estado de México", state_code: 15, reports: 53 },
       { name: "Morelos", state_code: 17, reports: 2 },
@@ -14,7 +14,7 @@ export default function handler(req, res) {
       { name: "Chihuahua", state_code: 8, reports: 200 },
       { name: "Colima", state_code: 6, reports: 54 },
       { name: "Nayarit", state_code: 18, reports: 53 },
-      { name: "Michoacán", state_code: 16, reports: 2 },
+      { name: "Michoacán de Ocampo", state_code: 16, reports: 2 },
       { name: "Jalisco", state_code: 14, reports: 200 },
       { name: "Chiapas", state_code: 7, reports: 7 },
       { name: "Tabasco", state_code: 27, reports: 9 },
@@ -26,9 +26,9 @@ export default function handler(req, res) {
       { name: "Tlaxcala", state_code: 29, reports: 36 },
       { name: "Puebla", state_code: 21, reports: 90 },
       { name: "Hidalgo", state_code: 13, reports: 52 },
-      { name: "Veracruz", state_code: 30, reports: 5 },
+      { name: "Veracruz de Ignacio de la Llave", state_code: 30, reports: 5 },
       { name: "Nuevo León", state_code: 19, reports: 5 },
-      { name: "Coahuila", state_code: 5, reports: 5 },
+      { name: "Coahuila de Zaragoza", state_code: 5, reports: 5 },
       { name: "Tamaulipas", state_code: 28, reports: 5 },
       { name: "Yucatán", state_code: 31, reports: 5 },
       { name: "Campeche", state_code: 4, reports: 5 },

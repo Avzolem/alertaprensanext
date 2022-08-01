@@ -49,7 +49,7 @@ export default function Home() {
           //set opacity from 0 to 1 using min and max values
           newState.opacity =
             (state.reports - minValue) / (maxValue - minValue) + 0.15; // (state.reports - minValue) / (maxValue - minValue);
-          newState.url = `/estados/${state.state_code}`;
+          newState.url = `/estados/${state.name}`;
           return newState;
         });
 
@@ -73,7 +73,7 @@ export default function Home() {
           //set opacity from 0 to 1 using min and max values
           newState.opacity =
             (state.alerts - minValuetwo) / (maxValuetwo - minValuetwo) + 0.15; //
-          newState.url = `/estados/${state.state_code}`;
+          newState.url = `/estados/${state.name}`;
           return newState;
         });
 
@@ -183,10 +183,45 @@ export default function Home() {
                   )}
                 </div>
 
-                <div className="lg:hidden container   flex flex-col justify-items-center">
-                  <div className="cardcontainer  flex justify-items-center w-full ">
-                    <CardiB title="Chihuahua" url="" />
-                  </div>
+                <div className="cardcontainer lg:hidden  flex-col place-items-center ">
+                  <CardiB title="Aguascalientes" url="Aguascalientes" />
+                  <CardiB title="Baja California" url="Baja California" />
+                  <CardiB
+                    title="Baja California Sur"
+                    url="Baja California Sur"
+                  />
+                  <CardiB title="Campeche" url="Campeche" />
+                  <CardiB title="Coahuila" url="Coahuila de Zaragoza" />
+                  <CardiB title="Colima" url="Colima" />
+                  <CardiB title="Chiapas" url="Chiapas" />
+                  <CardiB title="Chihuahua" url="Chihuahua" />
+                  <CardiB title="Ciudad de México" url="Ciudad de México" />
+                  <CardiB title="Durango" url="Durango" />
+                  <CardiB title="Guanajuato" url="Guanajuato" />
+                  <CardiB title="Guerrero" url="Guerrero" />
+                  <CardiB title="Hidalgo" url="Hidalgo" />
+                  <CardiB title="Jalisco" url="Jalisco" />
+                  <CardiB title="Estado de México" url="Estado de México" />
+                  <CardiB title="Michoacán" url="Michoacán de Ocampo" />
+                  <CardiB title="Morelos" url="Morelos" />
+                  <CardiB title="Nayarit" url="Nayarit" />
+                  <CardiB title="Nuevo Leon" url="Nuevo Leon" />
+                  <CardiB title="Oaxaca" url="Oaxaca" />
+                  <CardiB title="Puebla" url="Puebla" />
+                  <CardiB title="Queretaro" url="Queretaro" />
+                  <CardiB title="Quintana Roo" url="Quintana Roo" />
+                  <CardiB title="San Luis Potosí" url="San Luis Potosí" />
+                  <CardiB title="Sinaloa" url="Sinaloa" />
+                  <CardiB title="Sonora" url="Sonora" />
+                  <CardiB title="Tabasco" url="Tabasco" />
+                  <CardiB title="Tamaulipas" url="Tamaulipas" />
+                  <CardiB title="Tlaxcala" url="Tlaxcala" />
+                  <CardiB
+                    title="Veracruz"
+                    url="Veracruz de Ignacio de la Llave"
+                  />
+                  <CardiB title="Yucatan" url="Yucatán" />
+                  <CardiB title="Zacatecas" url="Zacatecas" />
                 </div>
               </div>
             </div>

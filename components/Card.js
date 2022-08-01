@@ -20,7 +20,7 @@ const Card = ({ title, text, type, setMapLoader, total }) => {
             <p className="text-bold font-bold text-3xl">Total</p>
             <p className="text-bold font-extrabold text-3xl">{total}</p>
             <button
-              className="btn-sm bg-greynew"
+              className="invisible md:visible btn-sm bg-greynew"
               onClick={() => setMapLoader(type)}
             >
               Consulta

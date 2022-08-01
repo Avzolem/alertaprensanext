@@ -4,6 +4,7 @@ import MainLayout from "../../components/Layouts/MainLayout";
 import PostCard from "../../components/PostCard";
 import MaxAlert from "../../components/MaxAlert";
 import axios from "axios";
+import { parse } from "postcss";
 
 const postsData = [
   {
@@ -46,7 +47,7 @@ const StateDetailPage = () => {
 
         //find object with stateid in responsealAerts
         const matchedAlert = responseAlerts.find((alert) => {
-          return alert.state_code === parseInt(stateId);
+          return alert.name === stateId;
         });
 
         if (!matchedAlert) {
@@ -79,7 +80,7 @@ const StateDetailPage = () => {
         ) : globalError ? ( // : es un else
           globalError
         ) : (
-          <div className="w-auto  justify-center  ">
+          <div className="w-auto  justify-items-center  ">
             <div className=" flex flex-col justify-center md:flex-row md:justify-center md:w-full ">
               <div>
                 <img
