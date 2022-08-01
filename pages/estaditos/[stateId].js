@@ -4,6 +4,7 @@ import MainLayout from "../../components/Layouts/MainLayout";
 import PostCard from "../../components/PostCard";
 import MaxAlert from "../../components/MaxAlert";
 import axios from "axios";
+import { parse } from "postcss";
 
 const postsData = [
   {
@@ -29,6 +30,20 @@ const StateDetailPage = () => {
   const [loading, setLoading] = useState(false); // estado para mostrar que esta cargando
   const [globalError, setGlobalError] = useState(null);
   const [content, setContent] = useState(null);
+  const [reports, setReports] = useState([]);
+
+  useEffect(() => {
+    const getReports = async () => {
+      try {
+        const response = await axios.get("/api/reports");
+        console.log(response);
+        setReports(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getReports();
+  }, []);
 
   useEffect(() => {
     //esta funcion consume el servicio del API
@@ -46,7 +61,7 @@ const StateDetailPage = () => {
 
         //find object with stateid in responsealAerts
         const matchedAlert = responseAlerts.find((alert) => {
-          return alert.state_code === parseInt(stateId);
+          return alert.name === stateId;
         });
 
         if (!matchedAlert) {
@@ -73,22 +88,22 @@ const StateDetailPage = () => {
 
   return (
     <MainLayout>
-      <div className="fullcontainer flex justify-center items-center w-full 2xl:flex  2xl:h-[1200px] 2xl:w-screen">
+      <div className="fullcontainer   justify-center items-center w-auto h-auto mb-32">
         {loading ? ( // ? es un if
           <p>cargando</p>
         ) : globalError ? ( // : es un else
           globalError
         ) : (
-          <div className="w-full flex  justify-center">
-            <div className="flex justify-between max-w-7xl w-full ">
+          <div className="w-auto  justify-items-center  ">
+            <div className=" flex flex-col justify-center md:flex-row md:justify-center md:w-full ">
               <div>
                 <img
                   src={`/images/states/${stateId}.png`}
                   alt={`Imagen del estado ${stateId}`}
-                  className="h-full w-full object-cover"
+                  className="h-auto w-auto pr-0 md:h-full md:w-full object-cover lg:pr-60"
                 ></img>
               </div>
-              <div className="pt-6 place-content-end ">
+              <div className="h-auto pt-6 place-content-end ">
                 {content && (
                   <MaxAlert
                     title="Alertas Máximas"
@@ -99,6 +114,15 @@ const StateDetailPage = () => {
                 {postsData.map((post) => (
                   <PostCard key={post.id} title={post.title} text={post.text} />
                 ))}
+                {reports && reports.length > 0 ? (
+                  <div className="postscontainer border flex flex-col justify-center items-center px-2 w-full md:max-w-2xl ">
+                    {reports.map((report, i, data) => (
+                      <Post key={i} data={report} />
+                    ))}
+                  </div>
+                ) : (
+                  <p>No hay reportes</p>
+                )}
               </div>
             </div>
           </div>
