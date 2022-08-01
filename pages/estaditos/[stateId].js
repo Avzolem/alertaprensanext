@@ -4,6 +4,7 @@ import MainLayout from "../../components/Layouts/MainLayout";
 import PostCard from "../../components/PostCard";
 import MaxAlert from "../../components/MaxAlert";
 import axios from "axios";
+import PostCard2 from "../../components/PostCard2";
 
 const postsData = [
   {
@@ -23,12 +24,28 @@ const postsData = [
   },
 ];
 
-const StateDetailPage = () => {
+const StateDetailPage = ({ data }) => {
   const router = useRouter();
   const { stateId } = router.query;
   const [loading, setLoading] = useState(false); // estado para mostrar que esta cargando
   const [globalError, setGlobalError] = useState(null);
   const [content, setContent] = useState(null);
+  const [reports, setReports] = useState([]);
+
+  useEffect(() => {
+    const getReports = async () => {
+      try {
+        const response = await axios.get(
+          "https://62e2d20c3891dd9ba8f0755b.mockapi.io/api/reports"
+        );
+        console.log(response);
+        setReports(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getReports();
+  }, []);
 
   useEffect(() => {
     //esta funcion consume el servicio del API
@@ -88,6 +105,15 @@ const StateDetailPage = () => {
                   className="h-full w-full object-cover"
                 ></img>
               </div>
+              {reports && reports.length > 0 ? (
+                <div className="postscontainer border flex flex-col justify-center items-center px-2 w-full md:max-w-2xl ">
+                  {reports.map((report, i) => (
+                    <PostCard2 key={i} data={report} />
+                  ))}
+                </div>
+              ) : (
+                <p>No hay reviews</p>
+              )}
               <div className="pt-6 place-content-end ">
                 {content && (
                   <MaxAlert
@@ -96,9 +122,9 @@ const StateDetailPage = () => {
                     className=""
                   />
                 )}
-                {postsData.map((post) => (
+                {/* {postsData.map((post) => (
                   <PostCard key={post.id} title={post.title} text={post.text} />
-                ))}
+                ))} */}
               </div>
             </div>
           </div>
