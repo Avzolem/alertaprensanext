@@ -2,7 +2,7 @@ const Report = (props) => {
   console.log(props);
   return (
     <div className="p-2">
-      <div className="card w-96 bg-cyan-700 text-primary-content">
+      <div className="card rounded-md w-96 bg-cyan-700 text-primary-content">
         <div className="card-body">
           <h2 className="card-title text-emerald-300">
             Nivel {props.data.level}

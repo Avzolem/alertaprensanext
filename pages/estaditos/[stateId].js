@@ -105,15 +105,7 @@ const StateDetailPage = ({ data }) => {
                   className="h-full w-full object-cover"
                 ></img>
               </div>
-              {reports && reports.length > 0 ? (
-                <div className="postscontainer border flex flex-col justify-center items-center px-2 w-full md:max-w-2xl ">
-                  {reports.map((report, i) => (
-                    <PostCard2 key={i} data={report} />
-                  ))}
-                </div>
-              ) : (
-                <p>No hay reviews</p>
-              )}
+
               <div className="pt-6 place-content-end ">
                 {content && (
                   <MaxAlert
@@ -121,6 +113,15 @@ const StateDetailPage = ({ data }) => {
                     text={content.alerts}
                     className=""
                   />
+                )}
+                {reports && reports.length > 0 ? (
+                  <div className="postscontainer border flex flex-col justify-center items-center px-2 w-full md:max-w-2xl ">
+                    {reports.map((report, i) => (
+                      <PostCard2 key={i} data={report} />
+                    ))}
+                  </div>
+                ) : (
+                  <p>No hay reportes</p>
                 )}
                 {/* {postsData.map((post) => (
                   <PostCard key={post.id} title={post.title} text={post.text} />
