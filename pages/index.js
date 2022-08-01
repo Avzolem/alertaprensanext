@@ -128,7 +128,7 @@ export default function Home() {
         ) : globalError ? ( // : es un else
           globalError
         ) : (
-          <div className="wrapper lg:max-w-6xl w-full ">
+          <div className="wrapper  lg:max-w-6xl  ">
             <div className="container flex flex-col lg:flex-row lg:justify-between  justify-center items-center w-auto h-auto lg:w-full ">
               <div className="w-full  lg:max-w-full lg:w-5/12">
                 {states.length > 0 && (
@@ -154,7 +154,7 @@ export default function Home() {
                   </div>
                 )}{" "}
               </div>
-              <div className="flex justify-center mb-4 w-full  md:w-7/12">
+              <div className="flex justify-center w-full  ">
                 <div className="hidden container lg:flex h-[600px] w-[700px] overflow-hidden xl:flex  xl:h-[800px] xl:w-[1000px] xl:overflow-hidden ">
                   {maploader === "reportsMap" && (
                     <>
