@@ -89,15 +89,15 @@ const StateDetailPage = () => {
 
   return (
     <MainLayout>
-      <div className="fullcontainer   justify-center items-center w-auto h-auto mb-32">
+      <div className="fullcontainer justify-center items-center w-auto h-auto mb-32">
         {loading ? ( // ? es un if
           <p>cargando</p>
         ) : globalError ? ( // : es un else
           globalError
         ) : (
-          <div className="w-auto  justify-items-center  ">
-            <div className=" flex flex-col justify-center md:flex-row md:justify-center md:w-full ">
-              <div>
+          <div className="w-auto justify-items-center  ">
+            <div className="flex flex-col justify-center md:flex-row md:justify-center md:w-full ">
+              <div className="">
                 <img
                   src={`/images/states/${stateId}.png`}
                   alt={`Imagen del estado ${stateId}`}
@@ -115,9 +115,9 @@ const StateDetailPage = () => {
                 {/* {postsData.map((post) => (
                   <PostCard key={post.id} title={post.title} text={post.text} />
                 ))} */}
-                <div>
+                <div className="">
                   {reports && reports.length > 0 ? (
-                    <div className="postscontainer border flex flex-col justify-center items-center px-2 w-full md:max-w-2xl ">
+                    <div className="postscontainer overflow-y-auto border flex flex-col justify-center items-center px-2 w-full md:max-w-2xl ">
                       {reports.map((report, i) => (
                         <PostCard2 key={i} data={report} />
                       ))}
