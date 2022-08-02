@@ -36,11 +36,9 @@ const StateDetailPage = () => {
   useEffect(() => {
     const getReports = async () => {
       try {
-        const response = await axios.get(
-          "https://62e2d20c3891dd9ba8f0755b.mockapi.io/api/reports"
-        );
+        const response = await axios.get("/api/reports");
         console.log("Este es un response", response);
-        setReports(response.data);
+        setReports(response.data.state_reports); //quitar state_reports para api Manuel
       } catch (error) {
         console.log(error);
       }
@@ -114,9 +112,9 @@ const StateDetailPage = () => {
                     className=""
                   />
                 )}
-                {postsData.map((post) => (
+                {/* {postsData.map((post) => (
                   <PostCard key={post.id} title={post.title} text={post.text} />
-                ))}
+                ))} */}
                 <div>
                   {reports && reports.length > 0 ? (
                     <div className="postscontainer border flex flex-col justify-center items-center px-2 w-full md:max-w-2xl ">
