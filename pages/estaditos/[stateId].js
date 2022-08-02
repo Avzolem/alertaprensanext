@@ -117,9 +117,9 @@ const StateDetailPage = () => {
                 ))} */}
                 <div className="">
                   {reports && reports.length > 0 ? (
-                    <div className="postscontainer overflow-y-auto border flex flex-col justify-center items-center px-2 w-full md:max-w-2xl ">
+                    <div className="postscontainer border flex flex-col justify-center items-center px-2 w-full md:max-w-2xl ">
                       {reports.map((report, i) => (
-                        <PostCard2 key={i} data={report} />
+                        <PostCard2 className="" key={i} data={report} />
                       ))}
                     </div>
                   ) : (
