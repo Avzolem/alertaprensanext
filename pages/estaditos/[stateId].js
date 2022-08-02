@@ -101,10 +101,10 @@ const StateDetailPage = () => {
                 <img
                   src={`/images/states/${stateId}.png`}
                   alt={`Imagen del estado ${stateId}`}
-                  className="h-auto w-auto pr-0 md:h-full md:w-full object-cover lg:pr-60"
+                  className=" h-auto w-auto pr-0 md:h-auto md:w-fit object-cover lg:pr-60"
                 ></img>
               </div>
-              <div className="h-auto pt-6 place-content-end ">
+              <div className=" overflow-auto h-screen  pt-6 place-content-end ">
                 {content && (
                   <MaxAlert
                     title="Alertas Máximas"
