@@ -5,6 +5,7 @@ import PostCard from "../../components/PostCard";
 import MaxAlert from "../../components/MaxAlert";
 import axios from "axios";
 import { parse } from "postcss";
+import PostCard2 from "../../components/PostCard2";
 
 const postsData = [
   {
@@ -35,8 +36,10 @@ const StateDetailPage = () => {
   useEffect(() => {
     const getReports = async () => {
       try {
-        const response = await axios.get("/api/reports");
-        console.log(response);
+        const response = await axios.get(
+          "https://62e2d20c3891dd9ba8f0755b.mockapi.io/api/reports"
+        );
+        console.log("Este es un response", response);
         setReports(response.data);
       } catch (error) {
         console.log(error);
@@ -114,15 +117,17 @@ const StateDetailPage = () => {
                 {postsData.map((post) => (
                   <PostCard key={post.id} title={post.title} text={post.text} />
                 ))}
-                {reports && reports.length > 0 ? (
-                  <div className="postscontainer border flex flex-col justify-center items-center px-2 w-full md:max-w-2xl ">
-                    {reports.map((report, i, data) => (
-                      <Post key={i} data={report} />
-                    ))}
-                  </div>
-                ) : (
-                  <p>No hay reportes</p>
-                )}
+                <div>
+                  {reports && reports.length > 0 ? (
+                    <div className="postscontainer border flex flex-col justify-center items-center px-2 w-full md:max-w-2xl ">
+                      {reports.map((report, i) => (
+                        <PostCard2 key={i} data={report} />
+                      ))}
+                    </div>
+                  ) : (
+                    <p>No hay reportes</p>
+                  )}
+                </div>
               </div>
             </div>
           </div>
