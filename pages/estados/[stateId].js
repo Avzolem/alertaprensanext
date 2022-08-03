@@ -1,28 +1,10 @@
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import MainLayout from "../../components/Layouts/MainLayout";
-import PostCard from "../../components/PostCard";
 import MaxAlert from "../../components/MaxAlert";
 import axios from "axios";
 import { parse } from "postcss";
-
-const postsData = [
-  {
-    id: 1,
-    title: "Reporte Ejemplo 1",
-    text: "Soy ovíparo y quiero jugar con todos los niños como Chabelo.",
-  },
-  {
-    id: 2,
-    title: "Reporte Ejemplo 2",
-    text: "Tu tío es una mamá muy buena.",
-  },
-  {
-    id: 3,
-    title: "Reporte Ejemplo 3",
-    text: "¿Y si todas las estatuas griegas en realidad son víctimas de medusa?",
-  },
-];
+import PostCard2 from "../../components/PostCard2";
 
 const StateDetailPage = () => {
   const router = useRouter();
@@ -30,6 +12,20 @@ const StateDetailPage = () => {
   const [loading, setLoading] = useState(false); // estado para mostrar que esta cargando
   const [globalError, setGlobalError] = useState(null);
   const [content, setContent] = useState(null);
+  const [reports, setReports] = useState([]);
+
+  useEffect(() => {
+    const getReports = async () => {
+      try {
+        const response = await axios.get("/api/reports");
+        console.log("Este es un response", response);
+        setReports(response.data.state_reports); //quitar state_reports para api Manuel
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getReports();
+  }, []);
 
   useEffect(() => {
     //esta funcion consume el servicio del API
@@ -74,22 +70,25 @@ const StateDetailPage = () => {
 
   return (
     <MainLayout>
-      <div className="fullcontainer   justify-center items-center w-auto h-auto mb-32">
+      <div className="fullcontainer justify-center items-center w-auto h-auto mb-32">
         {loading ? ( // ? es un if
           <p>cargando</p>
         ) : globalError ? ( // : es un else
           globalError
         ) : (
-          <div className="w-auto  justify-items-center  ">
-            <div className=" flex flex-col justify-center md:flex-row md:justify-center md:w-full ">
-              <div>
+          <div className="w-auto justify-items-center  ">
+            <div className="flex flex-col justify-center md:flex-row md:justify-center md:w-full ">
+              <div className="md:pr-60 ">
+                <h1 className="text-center font-bold text-5xl my-5 text-teal-600 uppercase">
+                  {stateId}
+                </h1>
                 <img
                   src={`/images/states/${stateId}.png`}
                   alt={`Imagen del estado ${stateId}`}
-                  className="h-auto w-auto pr-0 md:h-full md:w-full object-cover lg:pr-60"
+                  className=" h-auto w-auto pr-0 md:h-auto md:w-fit object-cover "
                 ></img>
               </div>
-              <div className="h-auto pt-6 place-content-end ">
+              <div className=" overflow-auto h-128  pt-6 place-content-end ">
                 {content && (
                   <MaxAlert
                     title="Alertas Máximas"
@@ -97,9 +96,20 @@ const StateDetailPage = () => {
                     className=""
                   />
                 )}
-                {postsData.map((post) => (
+                {/* {postsData.map((post) => (
                   <PostCard key={post.id} title={post.title} text={post.text} />
-                ))}
+                ))} */}
+                <div className="">
+                  {reports && reports.length > 0 ? (
+                    <div className="postscontainer border flex flex-col justify-center items-center px-2 w-full md:max-w-2xl ">
+                      {reports.map((report, i) => (
+                        <PostCard2 className="" key={i} data={report} />
+                      ))}
+                    </div>
+                  ) : (
+                    <p>No hay reportes</p>
+                  )}
+                </div>
               </div>
             </div>
           </div>
