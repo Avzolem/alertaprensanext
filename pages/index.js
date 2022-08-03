@@ -136,7 +136,7 @@ export default function Home() {
                     <div className="cardcontainer  flex justify-center w-full mt-4">
                       <Card
                         title="Reporte de amenazas"
-                        text="Mapeo de reportes de amenazas por estado"
+                        text="Mapeo de reportes de amenazas por estado:"
                         type="reportsMap"
                         setMapLoader={setMapLoader}
                         total={totalreports}
@@ -154,8 +154,8 @@ export default function Home() {
                   </div>
                 )}{" "}
               </div>
-              <div className="flex justify-center w-full  ">
-                <div className="hidden container lg:flex h-[600px] w-[700px] overflow-hidden xl:flex  xl:h-[800px] xl:w-[1000px] xl:overflow-hidden ">
+              <div className="flex justify-center w-full h-4/5 ">
+                <div className="hidden container lg:flex lg:h-[800px] lg:w-[700px] overflow-hidden xl:flex  xl:h-[800px] xl:w-[1000px] xl:overflow-hidden ">
                   {maploader === "reportsMap" && (
                     <>
                       <Map

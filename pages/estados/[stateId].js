@@ -77,15 +77,15 @@ const StateDetailPage = () => {
           globalError
         ) : (
           <div className="w-auto justify-items-center  ">
-            <div className="flex flex-col justify-center md:flex-row md:justify-center md:w-full ">
-              <div className="md:pr-60 ">
+            <div className="flex flex-col justify-center md:flex-row md:justify-around md:w-full ">
+              <div className="self-center">
                 <h1 className="text-center font-bold text-5xl my-5 text-teal-600 uppercase">
                   {stateId}
                 </h1>
                 <img
                   src={`/images/states/${stateId}.png`}
                   alt={`Imagen del estado ${stateId}`}
-                  className=" h-auto w-auto pr-0 md:h-auto md:w-fit object-cover "
+                  className=" h-auto w-auto md:h-auto md:w-fit object-cover "
                 ></img>
               </div>
               <div className=" overflow-auto h-128  pt-6 place-content-end ">
