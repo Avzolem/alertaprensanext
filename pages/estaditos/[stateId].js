@@ -104,7 +104,7 @@ const StateDetailPage = () => {
                   className=" h-auto w-auto pr-0 md:h-auto md:w-fit object-cover lg:pr-60"
                 ></img>
               </div>
-              <div className=" overflow-auto h-screen  pt-6 place-content-end ">
+              <div className=" overflow-auto h-128  pt-6 place-content-end ">
                 {content && (
                   <MaxAlert
                     title="Alertas Máximas"

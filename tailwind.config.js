@@ -6,14 +6,16 @@ module.exports = {
   ],
   theme: {
     extend: {
+      height: {
+        128: "42rem",
+      },
       colors: {
-        'azulgrey': '#3d6773',
-        'azuldark': '#1a353d',
-        'orangenew': '#f98d73',
-        'greynew': '#7da4a7',
-
-      }
+        azulgrey: "#3d6773",
+        azuldark: "#1a353d",
+        orangenew: "#f98d73",
+        greynew: "#7da4a7",
+      },
     },
   },
   plugins: [require("daisyui")],
-}
+};
