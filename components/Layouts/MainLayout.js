@@ -3,10 +3,10 @@ import Footer from "../Footer";
 
 export default function MainLayout({ children }) {
   return (
-    <div className="bg-stone-200 h-full w-screen">
+    <div className="bg-stone-200 h-full w-full">
       <Navbar />
 
-      <main className="w-full h-fit">{children}</main>
+      <main className="w-full">{children}</main>
       <Footer />
     </div>
   );
