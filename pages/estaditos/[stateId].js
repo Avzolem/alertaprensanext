@@ -98,6 +98,9 @@ const StateDetailPage = () => {
           <div className="w-auto justify-items-center  ">
             <div className="flex flex-col justify-center md:flex-row md:justify-center md:w-full ">
               <div className="">
+                <h1 className="text-center font-bold text-5xl my-5 text-teal-600 uppercase">
+                  {stateId}
+                </h1>
                 <img
                   src={`/images/states/${stateId}.png`}
                   alt={`Imagen del estado ${stateId}`}
