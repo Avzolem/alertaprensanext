@@ -98,6 +98,9 @@ const StateDetailPage = () => {
           <div className="w-auto justify-items-center  ">
             <div className="flex flex-col justify-center md:flex-row md:justify-center md:w-full ">
               <div className="">
+                <h1 className="text-center font-bold text-5xl my-5 text-teal-600 uppercase">
+                  {stateId}
+                </h1>
                 <img
                   src={`/images/states/${stateId}.png`}
                   alt={`Imagen del estado ${stateId}`}
@@ -117,9 +120,9 @@ const StateDetailPage = () => {
                 ))} */}
                 <div className="">
                   {reports && reports.length > 0 ? (
-                    <div className="postscontainer overflow-y-auto border flex flex-col justify-center items-center px-2 w-full md:max-w-2xl ">
+                    <div className="postscontainer border flex flex-col justify-center items-center px-2 w-full md:max-w-2xl ">
                       {reports.map((report, i) => (
-                        <PostCard2 key={i} data={report} />
+                        <PostCard2 className="" key={i} data={report} />
                       ))}
                     </div>
                   ) : (
