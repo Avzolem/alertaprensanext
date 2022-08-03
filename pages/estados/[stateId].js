@@ -79,7 +79,7 @@ const StateDetailPage = () => {
           <div className="w-auto justify-items-center  ">
             <div className="flex flex-col justify-center md:flex-row md:justify-center md:w-full ">
               <div className="md:pr-60 ">
-                <h1 className="text-center font-bold text-5xl my-5 text-teal-600 uppercase">
+                <h1 className="text-center font-bold text-5xl my-5 text-gray-600 uppercase">
                   {stateId}
                 </h1>
                 <img
