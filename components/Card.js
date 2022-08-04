@@ -17,10 +17,10 @@ const Card = ({ title, text, type, setMapLoader, total }) => {
           <p className="text-grey-300">{text}</p>
 
           <div className="card-actions place-content-center">
-            <p className="text-bold font-bold text-lg">Total</p>
-            <p className="text-bold font-extrabold text-lg">{total}</p>
+            <p className="text-bold font-bold text-lg text-teal-100">Total</p>
+            <p className="text-bold font-extrabold text-teal-100 text-lg">{total}</p>
             <button
-              className="invisible lg:visible btn-sm bg-greynew"
+              className="invisible lg:visible btn-sm rounded bg-greynew hover:bg-greyhover"
               onClick={() => setMapLoader(type)}
             >
               Consulta

@@ -14,6 +14,8 @@ module.exports = {
         azuldark: "#1a353d",
         orangenew: "#f98d73",
         greynew: "#7da4a7",
+        greyhover: "#91bec1",
+        greyhoverdark: "#6f9194",
       },
     },
   },
