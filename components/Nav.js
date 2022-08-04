@@ -60,9 +60,9 @@ export default function Example() {
                         className={classNames(
                           item.current
                             ? "bg-teal-900 text-white"
-                            : "text-gray-300 hover:bg-teal-800 hover:text-white",
+                            : "text-white-300 hover:bg-teal-800 hover:text-white",
                           "px-3 py-2 rounded-md text-sm font-medium"
-                        )}
+                        )} //este es el texto de los items del menú
                         aria-current={item.current ? "page" : undefined}
                       >
                         {item.name}
