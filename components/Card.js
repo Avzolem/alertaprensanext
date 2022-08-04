@@ -8,17 +8,17 @@ const Card = ({ title, text, type, setMapLoader, total }) => {
       >
         <div className="card-body">
           <h2
-            className={`card-title ${
+            className={`card-title text-base font-semibold ${
               type === "reportsMap" ? "text-emerald-300" : "text-orangenew"
             }`}
           >
             {title}
           </h2>
-          <p>{text}</p>
+          <p className="text-grey-300">{text}</p>
 
           <div className="card-actions place-content-center">
-            <p className="text-bold font-bold text-3xl">Total</p>
-            <p className="text-bold font-extrabold text-3xl">{total}</p>
+            <p className="text-bold font-bold text-lg">Total</p>
+            <p className="text-bold font-extrabold text-lg">{total}</p>
             <button
               className="invisible lg:visible btn-sm bg-greynew"
               onClick={() => setMapLoader(type)}

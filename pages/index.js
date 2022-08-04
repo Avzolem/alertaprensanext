@@ -135,7 +135,7 @@ export default function Home() {
                   <div className="container flex flex-col justify-start items-center">
                     <div className="cardcontainer  flex justify-center w-full mt-4">
                       <Card
-                        title="Reporte de amenazas"
+                        title="REPORTE DE AMENAZAS"
                         text="Mapeo de reportes de amenazas por estado:"
                         type="reportsMap"
                         setMapLoader={setMapLoader}
@@ -144,7 +144,7 @@ export default function Home() {
                     </div>
                     <div className="mt-8 flex justify-center mb-4 w-full ">
                       <Card
-                        title="Alertas máximas"
+                        title="ALERTAS MÁXIMAS"
                         text="Mapeo del registro de las alertas máximas emitidas en México"
                         type="alertsMap"
                         setMapLoader={setMapLoader}
