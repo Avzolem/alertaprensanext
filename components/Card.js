@@ -2,7 +2,7 @@ const Card = ({ title, text, type, setMapLoader, total }) => {
   return (
     <div className="mx-4 w-full  lg:mx-8">
       <div
-        className={`card rounded-md  w-full lg:w-80 h-44 ${
+        className={`card rounded-md w-full lg:w-80 h-44 ${
           type === "reportsMap" ? "bg-azulgrey" : "bg-azuldark"
         } text-primary-content text-sm`}
       >
@@ -18,9 +18,11 @@ const Card = ({ title, text, type, setMapLoader, total }) => {
 
           <div className="card-actions place-content-center">
             <p className="text-bold font-bold text-lg text-teal-100">Total</p>
-            <p className="text-bold font-extrabold text-teal-100 text-lg">{total}</p>
+            <p className="text-bold font-extrabold text-teal-100 text-lg">
+              {total}
+            </p>
             <button
-              className="invisible lg:visible btn-sm rounded bg-greynew hover:bg-greyhover"
+              className="invisible hover:scale-125 ease-in-out duration-300 delay-150 lg:visible btn-sm rounded bg-greynew hover:bg-greyhover"
               onClick={() => setMapLoader(type)}
             >
               Consulta
